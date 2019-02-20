@@ -1,10 +1,11 @@
 /* eslint no-console:0 */
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Header from '../components/Header'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <div>ヘッダー</div>,
+    <Header />,
     document.querySelector('#header')
   )
 });
