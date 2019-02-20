@@ -15,3 +15,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#app')
   )
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  ReactDOM.render(
+    <div>フッター</div>,
+    document.querySelector('#footer')
+  )
+});
