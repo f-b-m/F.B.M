@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from '../components/Header'
-import Card from '../components/Card'
+import GridLayout from '../components/GridLayout'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Card />,
+    <GridLayout />,
     document.querySelector('#app')
   )
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <div>フッター</div>,
-    document.querySelector('#footer')
-  )
-});
+// document.addEventListener('DOMContentLoaded', () => {
+//   ReactDOM.render(
+//     <div>Yu Fujiki & Taku SHimomura</div>,
+//     document.querySelector('#footer')
+//   )
+// });
