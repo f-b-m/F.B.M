@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from '../components/Header'
-import GridLayout from '../components/GridLayout'
+import Body from '../components/Body'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <GridLayout />,
+    <Body />,
     document.querySelector('#app')
   )
 });
