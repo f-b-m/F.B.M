@@ -2,6 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from '../components/Header'
+import Card from '../components/Card'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -12,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <div>ボディ</div>,
+    <Card />,
     document.querySelector('#app')
   )
 });
