@@ -8,7 +8,8 @@ class MenusController < ApplicationController
   end
 
   def create
-    menu = Menu.new(params.permit(:title, :content, :user_id))
+    menu = Menu.new(params.permit(:title, :content))
+    menu.user_id = current_user.id
     menu.save
     render :body => nil, :status => 200
   end
@@ -20,8 +21,10 @@ class MenusController < ApplicationController
   end
 
   def update
+    title = params[:title]
+    content = params[:content]
     menu = Menu.find(params[:id])
-    menu.update
+    menu.update(title: title, content: content)
     render :body => nil, :status => 200
   end
 
