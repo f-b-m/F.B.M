@@ -66,7 +66,7 @@ class TooltipsDeleteButton extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action='Delete'  menuId={menuId} modalHandleClose={this.handleClose} />
+            <FormContent action="Delete" menuId={menuId} modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>
@@ -76,6 +76,7 @@ class TooltipsDeleteButton extends React.Component {
 
 TooltipsDeleteButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  menuId: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(TooltipsDeleteButton);

@@ -30,7 +30,6 @@ class CenteredGrid extends React.Component {
     axios.get('menus/index')
       .then((response) => {
         const menus = response.data;
-        console.log(menus);
         this.setState({
           menus,
         });

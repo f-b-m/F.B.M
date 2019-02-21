@@ -46,7 +46,7 @@ class TooltipsEditButton extends React.Component {
   };
 
   render() {
-    const { classes, menuId, userId } = this.props;
+    const { classes, menuId } = this.props;
     const { open } = this.state;
 
     return (
@@ -55,6 +55,7 @@ class TooltipsEditButton extends React.Component {
           <Fab
             onClick={this.handleOpen}
             color="secondary"
+            className={classes.absolute}
           >
             <EditIcon />
           </Fab>
@@ -66,7 +67,7 @@ class TooltipsEditButton extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action='Edit' menuId={menuId} modalHandleClose={this.handleClose} />
+            <FormContent action="Edit" menuId={menuId} modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>
@@ -76,6 +77,7 @@ class TooltipsEditButton extends React.Component {
 
 TooltipsEditButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  menuId: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(TooltipsEditButton);

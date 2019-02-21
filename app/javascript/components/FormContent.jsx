@@ -21,8 +21,8 @@ class FormContent extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      title: "",
-      content: "",
+      title: '',
+      content: '',
     };
   }
 
@@ -33,18 +33,16 @@ class FormContent extends React.Component {
   };
 
   handleClickCreate = () => {
+    const { title, content } = this.state;
     axios.post('menus/create',
       {
-        title: this.state.title,
-        content: this.state.content,
-      },
-    )
-      .then((response) => {
+        title,
+        content,
+      })
+      .then(() => {
         const { modalHandleClose } = this.props;
-        console.log(response);
-        alert('作成しました');
         modalHandleClose();
-        location.reload();
+        // location.reload();
       });
     // .then((error) => {
     //   console.log(error);
@@ -53,23 +51,20 @@ class FormContent extends React.Component {
 
   handleClickEdit = () => {
     const { menuId } = this.props;
-    console.log(this.props);
-    console.log(menuId);
+    const { title, content } = this.state;
     axios({
       method: 'patch',
       url: '/menus/update',
       data: {
-        title: this.state.title,
-        content: this.state.content,
+        title,
+        content,
         id: menuId,
-      }
+      },
     })
-      .then((response) => {
+      .then(() => {
         const { modalHandleClose } = this.props;
-        console.log(response);
-        alert('更新しました');
         modalHandleClose();
-        location.reload();
+        // location.reload();
       });
     // .then((error) => {
     //   console.log(error);
@@ -78,19 +73,16 @@ class FormContent extends React.Component {
 
   handleClickDelete = () => {
     const { menuId } = this.props;
-    console.log(menuId)
-    console.log(typeof menuId)
     axios.delete('menus/delete',
-      {data : {
-        id: menuId,
-      }}
-    )
-      .then((response) => {
+      {
+        data: {
+          id: menuId,
+        },
+      })
+      .then(() => {
         const { modalHandleClose } = this.props;
-        console.log(response);
-        alert('削除しました');
         modalHandleClose();
-        location.reload();
+        // location.reload();
       });
     // .then((error) => {
     //   console.log(error);
@@ -98,9 +90,9 @@ class FormContent extends React.Component {
   }
 
   render() {
-    const { classes , action } = this.props;
+    const { classes, action } = this.props;
     const { title, content } = this.state;
-    const handleClickAction = `handleClick${action}`
+    const handleClickAction = `handleClick${action}`;
 
     return (
       <div>
@@ -129,7 +121,7 @@ class FormContent extends React.Component {
             variant="filled"
           />
         </form>
-        <Button onClick={this[handleClickAction]} color='primary'>
+        <Button onClick={this[handleClickAction]} color="primary">
           {action}
         </Button>
       </div>
@@ -139,6 +131,9 @@ class FormContent extends React.Component {
 
 FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
+  menuId: PropTypes.object.isRequired,
+  action: PropTypes.object.isRequired,
+  modalHandleClose: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(FormContent);
