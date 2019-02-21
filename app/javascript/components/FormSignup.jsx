@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { sessionApi } from '../modules/API';
+import { registrationApi } from '../modules/API';
 
 const styles = theme => ({
   container: {
@@ -26,6 +26,7 @@ class FormLogin extends React.Component {
     this.state = {
       email: '',
       password: '',
+      passwordConfirmation: '',
     };
   }
 
@@ -39,9 +40,9 @@ class FormLogin extends React.Component {
     event.preventDefault();
 
     const { modalHandleClose, toBeLogIn } = this.props;
-    const { email, password } = this.state;
+    const { email, password, passwordConfirmation } = this.state;
 
-    sessionApi.login({ email, password })
+    registrationApi.signUp({ email, password, passwordConfirmation })
       .then((response) => {
         console.log(response);
         toBeLogIn();
@@ -54,7 +55,7 @@ class FormLogin extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { email, password } = this.state;
+    const { email, password, passwordConfirmation } = this.state;
 
     return (
       <form className={classes.container} noValidate autoComplete="off">
@@ -85,13 +86,26 @@ class FormLogin extends React.Component {
           variant="filled"
         />
 
+        <TextField
+          id="filled-password-confirmation-input"
+          label="Password Confirmation"
+          className={classes.textField}
+          onChange={this.handleChange('passwordConfirmation')}
+          fullWidth
+          value={passwordConfirmation}
+          type="password"
+          autoComplete="current-password"
+          margin="normal"
+          variant="filled"
+        />
+
         <Button
           variant="contained"
           color="primary"
           className={classes.button}
           onClick={this.handleSubmit()}
         >
-          Log In
+          Sign Up
         </Button>
       </form>
     );

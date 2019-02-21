@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import ButtonLogin from './ButtonLogin';
+import AreaAuth from './AreaAuth';
 import { setAxiosDefaults } from '../modules/API';
 
 const styles = {
@@ -36,7 +36,7 @@ class FBMHeader extends React.Component {
             <Typography variant="h6" color="inherit" className={classes.grow}>
               FBMへようこそ
             </Typography>
-            <ButtonLogin />
+            <AreaAuth />
           </Toolbar>
         </AppBar>
       </div>
