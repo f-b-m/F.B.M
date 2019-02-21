@@ -30,6 +30,7 @@ const styles = theme => ({
 class ButtonLogin extends React.Component {
   state = {
     open: false,
+    isLogIn: false,
   };
 
   handleOpen = () => {
@@ -40,13 +41,19 @@ class ButtonLogin extends React.Component {
     this.setState({ open: false });
   };
 
+  toBeLogIn = () => {
+    this.setState({ isLogIn: true });
+  };
+
   render() {
     const { classes } = this.props;
-    const { open } = this.state;
+    const { open, isLogIn } = this.state;
 
     return (
       <div>
-        <Button onClick={this.handleOpen} color="inherit">ログイン</Button>
+        <Button onClick={this.handleOpen} color="inherit">
+          {isLogIn ? 'ログアウト' : 'ログイン'}
+        </Button>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
@@ -54,7 +61,10 @@ class ButtonLogin extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormLogin modalHandleClose={this.handleClose} />
+            <FormLogin
+              modalHandleClose={this.handleClose}
+              toBeLogIn={this.toBeLogIn}
+            />
           </div>
         </Modal>
       </div>
