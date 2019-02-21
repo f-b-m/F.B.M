@@ -17,38 +17,46 @@ const styles = theme => ({
 });
 
 class CenteredGrid extends React.Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      menus: [],
+    };
+  }
+
+  componentWillMount() {
     axios.get('menus/index')
       .then((response) => {
-        console.log(response);
-      })
-      .then((error) => {
-        console.log(error);
+        const menus = response.data;
+        console.log(menus);
+        this.setState({
+          menus,
+        });
       });
+    // .then((error) => {
+    //   console.log(error);
+    // })
   }
 
   render() {
     const { classes } = this.props;
+    const { menus } = this.state;
+    console.log(menus);
 
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>menu 1</Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>menu 2</Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>menu 3</Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>menu 4</Paper>
-          </Grid>
+          {menus.map(elm =>
+             (<Grid item xs={12}>
+               <Paper className={classes.paper}>
+                 タイトル: {elm.title}, 内容: {elm.content}
+               </Paper>
+             </Grid>))}
         </Grid>
       </div>
     );
   }
+
 }
 
 CenteredGrid.propTypes = {
