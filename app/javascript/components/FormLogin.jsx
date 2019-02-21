@@ -100,8 +100,8 @@ class FormLogin extends React.Component {
 
 FormLogin.propTypes = {
   classes: PropTypes.object.isRequired,
-  modalHandleClose: PropTypes.object.isRequired,
-  toBeLogIn: PropTypes.object.isRequired,
+  modalHandleClose: PropTypes.func.isRequired,
+  toBeLogIn: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(FormLogin);

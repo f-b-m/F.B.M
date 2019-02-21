@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import FormLogin from './FormLogin';
+import { sessionApi } from '../modules/API';
 
 function getModalStyle() {
   const top = 50;
@@ -28,10 +29,13 @@ const styles = theme => ({
 });
 
 class ButtonLogin extends React.Component {
-  state = {
-    open: false,
-    isLogIn: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      open: false,
+      isLogIn: false,
+    };
+  }
 
   handleOpen = () => {
     this.setState({ open: true });
@@ -41,12 +45,19 @@ class ButtonLogin extends React.Component {
     this.setState({ open: false });
   };
 
-  toBeLogIn = () => {
-    this.setState({ isLogIn: true });
+  toBeLogOut = () => {
+    sessionApi.logout()
+      .then((response) => {
+        console.log(response);
+        this.setState({ isLogIn: false });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  toBeLogOut = () => {
-    this.setState({ isLogIn: false });
+  toBeLogIn = () => {
+    this.setState({ isLogIn: true });
   };
 
   render() {
