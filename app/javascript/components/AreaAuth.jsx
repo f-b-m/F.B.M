@@ -47,11 +47,11 @@ class ButtonLogin extends React.Component {
   };
 
   handleOpenSignup = () => {
-    this.setState({ isSignupLogin: true });
+    this.setState({ isOpenSignup: true });
   };
 
   handleCloseSignup = () => {
-    this.setState({ isSignupLogin: false });
+    this.setState({ isOpenSignup: false });
   };
 
   toBeLogOut = () => {
@@ -71,7 +71,7 @@ class ButtonLogin extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { open, isLogIn } = this.state;
+    const { isOpenLogin, isOpenSignup, isLogIn } = this.state;
 
     const logOutButton = (
       <div>
@@ -89,7 +89,7 @@ class ButtonLogin extends React.Component {
         <Modal
           aria-labelledby="login-modal-title"
           aria-describedby="login-modal-description"
-          open={open}
+          open={isOpenLogin}
           onClose={this.handleCloseLogin}
         >
           <div style={getModalStyle()} className={classes.paper}>
@@ -107,7 +107,7 @@ class ButtonLogin extends React.Component {
         <Modal
           aria-labelledby="signup-modal-title"
           aria-describedby="signup-modal-description"
-          open={open}
+          open={isOpenSignup}
           onClose={this.handleCloseSignup}
         >
           <div style={getModalStyle()} className={classes.paper}>
