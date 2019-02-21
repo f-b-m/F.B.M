@@ -83,24 +83,6 @@ class AreaAuth extends React.Component {
 
     const logInButton = (
       <div>
-        <Button onClick={this.handleOpenLogin} color="inherit">
-          Log In
-        </Button>
-        <Modal
-          aria-labelledby="login-modal-title"
-          aria-describedby="login-modal-description"
-          open={isOpenLogin}
-          onClose={this.handleCloseLogin}
-        >
-          <div style={getModalStyle()} className={classes.paper}>
-            <FormLogin
-              modalHandleClose={this.handleCloseLogin}
-              toBeLogIn={this.toBeLogIn}
-              isSignUp={false}
-            />
-          </div>
-        </Modal>
-
         <Button onClick={this.handleOpenSignup} color="inherit">
           Sign Up
         </Button>
@@ -115,6 +97,24 @@ class AreaAuth extends React.Component {
               modalHandleClose={this.handleCloseSignup}
               toBeLogIn={this.toBeLogIn}
               isSignUp
+            />
+          </div>
+        </Modal>
+
+        <Button onClick={this.handleOpenLogin} color="inherit">
+          Log In
+        </Button>
+        <Modal
+          aria-labelledby="login-modal-title"
+          aria-describedby="login-modal-description"
+          open={isOpenLogin}
+          onClose={this.handleCloseLogin}
+        >
+          <div style={getModalStyle()} className={classes.paper}>
+            <FormLogin
+              modalHandleClose={this.handleCloseLogin}
+              toBeLogIn={this.toBeLogIn}
+              isSignUp={false}
             />
           </div>
         </Modal>
