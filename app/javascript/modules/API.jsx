@@ -42,11 +42,10 @@ export const sessionApi = {
 
 export const registrationApi = {
   signUp: ({
-    email, password, passwordConfirmation, name,
+    email, password, passwordConfirmation,
   }) => (
     axios.post('/users', {
       user: {
-        name,
         email,
         password,
         passwordConfirmation,
