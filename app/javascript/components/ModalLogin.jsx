@@ -46,15 +46,18 @@ class SimpleModal extends React.Component {
 
   render() {
     const { classes } = this.props;
+    const { open } = this.state;
 
     return (
       <div>
-        <Typography gutterBottom>Click to get the full Modal experience!</Typography>
+        <Typography gutterBottom>
+          Click to get the full Modal experience!
+        </Typography>
         <Button onClick={this.handleOpen}>Open Modal</Button>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
-          open={this.state.open}
+          open={open}
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
