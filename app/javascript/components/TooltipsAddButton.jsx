@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 
@@ -22,7 +22,7 @@ function SimpleTooltips(props) {
     <div>
       <Tooltip title="Add" aria-label="Add">
         <Fab color="secondary" className={classes.absolute}>
-          <AddIcon />
+          <Icon>edit_icon</Icon>
         </Fab>
       </Tooltip>
     </div>
