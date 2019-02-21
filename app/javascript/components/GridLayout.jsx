@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
+import axios from 'axios';
 
 const styles = theme => ({
   root: {
@@ -15,27 +16,43 @@ const styles = theme => ({
   },
 });
 
-function CenteredGrid(props) {
-  const { classes } = props;
+class CenteredGrid extends React.Component {
+  componentDidMount() {
+    axios.post('menus/create', {
+      title: 'this is it',
+      content: 'training menu',
+      user_id: 'dondakeshimo',
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .then((error) => {
+        console.log(error);
+      });
+  }
 
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={24}>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>menu 1</Paper>
+  render() {
+    const { classes } = this.props;
+
+    return (
+      <div className={classes.root}>
+        <Grid container spacing={24}>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>menu 1</Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>menu 2</Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>menu 3</Paper>
+          </Grid>
+          <Grid item xs={12}>
+            <Paper className={classes.paper}>menu 4</Paper>
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>menu 2</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>menu 3</Paper>
-        </Grid>
-        <Grid item xs={12}>
-          <Paper className={classes.paper}>menu 4</Paper>
-        </Grid>
-      </Grid>
-    </div>
-  );
+      </div>
+    );
+  }
 }
 
 CenteredGrid.propTypes = {
