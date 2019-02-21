@@ -4,9 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import axios from 'axios';
-import { csrfToken } from 'rails-ujs';
 import ButtonLogin from './ButtonLogin';
+import { setAxiosDefaults } from '../modules/API';
 
 const styles = {
   root: {
@@ -24,7 +23,7 @@ const styles = {
 class FBMHeader extends React.Component {
   constructor(props) {
     super(props);
-    axios.defaults.headers.common['X-CSRF-Token'] = csrfToken();
+    setAxiosDefaults();
   }
 
   render() {
