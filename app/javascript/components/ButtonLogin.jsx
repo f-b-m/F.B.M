@@ -46,7 +46,7 @@ class ButtonLogin extends React.Component {
   };
 
   toBeLogOut = () => {
-    this.setState({ isLogOut: false });
+    this.setState({ isLogIn: false });
   };
 
   render() {
