@@ -39,6 +39,7 @@ gem 'webpacker'
 
 # use pry
 gem 'pry-rails'
+gem 'rb-readline'
 
 # use devise
 gem 'devise'
