@@ -32,17 +32,26 @@ class ButtonLogin extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      isOpenLogin: false,
       isLogIn: false,
+      isOpenSignup: false,
     };
   }
 
-  handleOpen = () => {
-    this.setState({ open: true });
+  handleOpenLogin = () => {
+    this.setState({ isOpenLogin: true });
   };
 
-  handleClose = () => {
-    this.setState({ open: false });
+  handleCloseLogin = () => {
+    this.setState({ isOpenLogin: false });
+  };
+
+  handleOpenSignup = () => {
+    this.setState({ isSignupLogin: true });
+  };
+
+  handleCloseSignup = () => {
+    this.setState({ isSignupLogin: false });
   };
 
   toBeLogOut = () => {
@@ -74,19 +83,38 @@ class ButtonLogin extends React.Component {
 
     const logInButton = (
       <div>
-        <Button onClick={this.handleOpen} color="inherit">
+        <Button onClick={this.handleOpenLogin} color="inherit">
           Log In
         </Button>
         <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
+          aria-labelledby="login-modal-title"
+          aria-describedby="login-modal-description"
           open={open}
-          onClose={this.handleClose}
+          onClose={this.handleCloseLogin}
         >
           <div style={getModalStyle()} className={classes.paper}>
             <FormLogin
-              modalHandleClose={this.handleClose}
+              modalHandleClose={this.handleCloseLogin}
               toBeLogIn={this.toBeLogIn}
+              isSignUp={false}
+            />
+          </div>
+        </Modal>
+
+        <Button onClick={this.handleOpenSignup} color="inherit">
+          Sign Up
+        </Button>
+        <Modal
+          aria-labelledby="signup-modal-title"
+          aria-describedby="signup-modal-description"
+          open={open}
+          onClose={this.handleCloseSignup}
+        >
+          <div style={getModalStyle()} className={classes.paper}>
+            <FormLogin
+              modalHandleClose={this.handleCloseSignup}
+              toBeLogIn={this.toBeLogIn}
+              isSignUp
             />
           </div>
         </Modal>
