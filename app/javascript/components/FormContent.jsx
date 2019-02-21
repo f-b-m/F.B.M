@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+import axios from 'axios';
 
 const styles = theme => ({
   container: {
@@ -15,16 +18,39 @@ const styles = theme => ({
 });
 
 class FormContent extends React.Component {
-  state = {
-    title: '',
-    content: '',
-  };
+  constructor(props, context) {
+    super(props, context);
+    this.handleClickCreate = this.handleClickCreate.bind(this);
+    this.state = {
+      title: "",
+      content: "",
+    };
+  }
 
   handleChange = name => (event) => {
     this.setState({
       [name]: event.target.value,
     });
   };
+
+  handleClickCreate() {
+    axios.post('menus/create',
+      {
+        title: this.state.title,
+        content: this.state.content,
+      },
+    )
+      .then((response) => {
+        const { modalHandleClose } = this.props;
+        console.log(response);
+        alert('作成しました');
+        modalHandleClose();
+        location.reload();
+      });
+    // .then((error) => {
+    //   console.log(error);
+    // })
+  }
 
   render() {
     const { classes , action} = this.props;
@@ -57,6 +83,10 @@ class FormContent extends React.Component {
             variant="filled"
           />
         </form>
+        <Button onClick={this.handleClickCreate} name='menuCreate' color='primary'>
+          {action}
+        </Button>
+
       </div>
     );
   }

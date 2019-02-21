@@ -72,7 +72,7 @@ class SimpleTooltips extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action='作成' />
+            <FormContent action='作成' modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>
