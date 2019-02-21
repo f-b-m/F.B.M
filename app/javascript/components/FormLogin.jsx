@@ -23,6 +23,7 @@ function FilledTextFields(props) {
         id="filled-email-input"
         label="Email"
         className={classes.textField}
+        fullWidth
         type="email"
         name="email"
         autoComplete="email"
@@ -34,6 +35,7 @@ function FilledTextFields(props) {
         id="filled-password-input"
         label="Password"
         className={classes.textField}
+        fullWidth
         type="password"
         autoComplete="current-password"
         margin="normal"
