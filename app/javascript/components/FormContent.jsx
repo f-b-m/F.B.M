@@ -14,35 +14,49 @@ const styles = theme => ({
   },
 });
 
-function FormContent(props) {
-  const { classes } = props;
+class FormContent extends React.Component {
+  state = {
+    title: '',
+    content: '',
+  };
 
-  return (
-    <form className={classes.container} noValidate autoComplete="off">
-      <TextField
-        id="filled-title"
-        label="Email"
-        className={classes.textField}
-        fullWidth
-        type="email"
-        name="email"
-        autoComplete="email"
-        margin="normal"
-        variant="filled"
-      />
+  handleChange = name => (event) => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
 
-      <TextField
-        id="filled-password-input"
-        label="Password"
-        className={classes.textField}
-        fullWidth
-        type="password"
-        autoComplete="current-password"
-        margin="normal"
-        variant="filled"
-      />
-    </form>
-  );
+  render() {
+    const { classes } = this.props;
+    const { title, content } = this.state;
+
+    return (
+      <form className={classes.container} noValidate autoComplete="off">
+        <TextField
+          id="filled-title"
+          label="title"
+          className={classes.textField}
+          onChange={this.handleChange('title')}
+          fullWidth
+          value={title}
+          margin="normal"
+          variant="filled"
+        />
+
+        <TextField
+          id="filled-password-input"
+          label="content"
+          className={classes.textField}
+          onChange={this.handleChange('content')}
+          fullWidth
+          multiline
+          value={content}
+          margin="normal"
+          variant="filled"
+        />
+      </form>
+    );
+  }
 }
 
 FormContent.propTypes = {
