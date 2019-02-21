@@ -4,6 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Modal from '@material-ui/core/Modal';
 import FormLogin from './FormLogin';
+import FormSignup from './FormSignup';
 import { sessionApi } from '../modules/API';
 
 function getModalStyle() {
@@ -93,7 +94,7 @@ class AreaAuth extends React.Component {
           onClose={this.handleCloseSignup}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormLogin
+            <FormSignup
               modalHandleClose={this.handleCloseSignup}
               toBeLogIn={this.toBeLogIn}
             />
