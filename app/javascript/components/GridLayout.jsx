@@ -46,7 +46,7 @@ class CenteredGrid extends React.Component {
         <Grid container spacing={24}>
           {menus.map(elm =>
             (
-              <Grid item xs={12}>
+              <Grid item xs={12} key={elm.id}>
                 <Paper className={classes.paper}>
                   タイトル: {elm.title}, 内容: {elm.content}
                  </Paper>
