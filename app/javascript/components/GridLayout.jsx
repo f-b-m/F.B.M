@@ -28,7 +28,6 @@ class CenteredGrid extends React.Component {
     axios.get('menus/index')
       .then((response) => {
         const menus = response.data;
-        console.log(menus);
         this.setState({
           menus,
         });
@@ -41,17 +40,19 @@ class CenteredGrid extends React.Component {
   render() {
     const { classes } = this.props;
     const { menus } = this.state;
-    console.log(menus);
 
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
           {menus.map(elm =>
-             (<Grid item xs={12}>
-               <Paper className={classes.paper}>
-                 タイトル: {elm.title}, 内容: {elm.content}
-               </Paper>
-             </Grid>))}
+            (
+              <Grid item xs={12}>
+                <Paper className={classes.paper}>
+                  タイトル: {elm.title}, 内容: {elm.content}
+                 </Paper>
+              </Grid>
+            )
+          )};
         </Grid>
       </div>
     );
