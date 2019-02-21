@@ -96,7 +96,6 @@ class AreaAuth extends React.Component {
             <FormLogin
               modalHandleClose={this.handleCloseSignup}
               toBeLogIn={this.toBeLogIn}
-              isSignUp
             />
           </div>
         </Modal>
@@ -114,7 +113,6 @@ class AreaAuth extends React.Component {
             <FormLogin
               modalHandleClose={this.handleCloseLogin}
               toBeLogIn={this.toBeLogIn}
-              isSignUp={false}
             />
           </div>
         </Modal>
