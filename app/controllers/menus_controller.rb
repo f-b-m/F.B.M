@@ -15,6 +15,8 @@ class MenusController < ApplicationController
   end
 
   def destroy
+    p '-----------id----------------'
+    p params[:id]
     menu = Menu.find(params[:id])
     menu.destroy
     render :body => nil, :status => 200

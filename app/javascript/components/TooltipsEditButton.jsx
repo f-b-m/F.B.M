@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AddIcon from '@material-ui/icons/Add';
+import EditIcon from '@material-ui/icons/Edit';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
@@ -22,11 +22,6 @@ const styles = theme => ({
   fab: {
     margin: theme.spacing.unit * 2,
   },
-  absolute: {
-    position: 'absolute',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 3,
-  },
   paper: {
     position: 'absolute',
     width: theme.spacing.unit * 50,
@@ -37,7 +32,7 @@ const styles = theme => ({
   },
 });
 
-class TooltipsAddButton extends React.Component {
+class TooltipsEditButton extends React.Component {
   state = {
     open: false,
   };
@@ -51,18 +46,17 @@ class TooltipsAddButton extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, menuId, userId } = this.props;
     const { open } = this.state;
 
     return (
       <div>
-        <Tooltip title="Create" aria-label="Create">
+        <Tooltip title="Edit" aria-label="Edit">
           <Fab
             onClick={this.handleOpen}
             color="secondary"
-            className={classes.absolute}
           >
-            <AddIcon />
+            <EditIcon />
           </Fab>
         </Tooltip>
         <Modal
@@ -72,7 +66,7 @@ class TooltipsAddButton extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action='Create' modalHandleClose={this.handleClose} />
+            <FormContent action='Edit' menuId={menuId} modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>
@@ -80,8 +74,8 @@ class TooltipsAddButton extends React.Component {
   }
 }
 
-TooltipsAddButton.propTypes = {
+TooltipsEditButton.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(TooltipsAddButton);
+export default withStyles(styles)(TooltipsEditButton);

@@ -20,7 +20,6 @@ const styles = theme => ({
 class FormContent extends React.Component {
   constructor(props, context) {
     super(props, context);
-    this.handleClickCreate = this.handleClickCreate.bind(this);
     this.state = {
       title: "",
       content: "",
@@ -33,7 +32,7 @@ class FormContent extends React.Component {
     });
   };
 
-  handleClickCreate() {
+  handleClickCreate = () => {
     axios.post('menus/create',
       {
         title: this.state.title,
@@ -52,13 +51,60 @@ class FormContent extends React.Component {
     // })
   }
 
+  handleClickEdit = () => {
+    const { menuId } = this.props;
+    console.log(this.props);
+    console.log(menuId);
+    axios({
+      method: 'patch',
+      url: '/menus/update',
+      data: {
+        title: this.state.title,
+        content: this.state.content,
+        id: menuId,
+      }
+    })
+      .then((response) => {
+        const { modalHandleClose } = this.props;
+        console.log(response);
+        alert('更新しました');
+        modalHandleClose();
+        location.reload();
+      });
+    // .then((error) => {
+    //   console.log(error);
+    // })
+  }
+
+  handleClickDelete = () => {
+    const { menuId } = this.props;
+    console.log(menuId)
+    console.log(typeof menuId)
+    axios.delete('menus/delete',
+      {data : {
+        id: menuId,
+      }}
+    )
+      .then((response) => {
+        const { modalHandleClose } = this.props;
+        console.log(response);
+        alert('削除しました');
+        modalHandleClose();
+        location.reload();
+      });
+    // .then((error) => {
+    //   console.log(error);
+    // })
+  }
+
   render() {
-    const { classes , action} = this.props;
+    const { classes , action } = this.props;
     const { title, content } = this.state;
+    const handleClickAction = `handleClick${action}`
 
     return (
       <div>
-        {`メニューを${action}します`}
+        {`${action} Menu`}
         <form>
           <TextField
             id="filled-title"
@@ -83,10 +129,9 @@ class FormContent extends React.Component {
             variant="filled"
           />
         </form>
-        <Button onClick={this.handleClickCreate} name='menuCreate' color='primary'>
+        <Button onClick={this[handleClickAction]} color='primary'>
           {action}
         </Button>
-
       </div>
     );
   }
