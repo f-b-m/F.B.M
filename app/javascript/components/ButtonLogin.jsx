@@ -54,7 +54,7 @@ class ButtonLogin extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormLogin />
+            <FormLogin modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>
