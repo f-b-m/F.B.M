@@ -45,14 +45,26 @@ class ButtonLogin extends React.Component {
     this.setState({ isLogIn: true });
   };
 
+  toBeLogOut = () => {
+    this.setState({ isLogOut: false });
+  };
+
   render() {
     const { classes } = this.props;
     const { open, isLogIn } = this.state;
 
-    return (
+    const logOutButton = (
+      <div>
+        <Button onClick={this.toBeLogOut} color="inherit">
+          ログアウト
+        </Button>
+      </div>
+    );
+
+    const logInButton = (
       <div>
         <Button onClick={this.handleOpen} color="inherit">
-          {isLogIn ? 'ログアウト' : 'ログイン'}
+          ログイン
         </Button>
         <Modal
           aria-labelledby="simple-modal-title"
@@ -67,6 +79,12 @@ class ButtonLogin extends React.Component {
             />
           </div>
         </Modal>
+      </div>
+    );
+
+    return (
+      <div>
+        {isLogIn ? logOutButton : logInButton}
       </div>
     );
   }
