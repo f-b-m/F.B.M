@@ -18,11 +18,7 @@ const styles = theme => ({
 
 class CenteredGrid extends React.Component {
   componentDidMount() {
-    axios.post('menus/create', {
-      title: 'this is it',
-      content: 'training menu',
-      user_id: 'dondakeshimo',
-    })
+    axios.get('menus/index')
       .then((response) => {
         console.log(response);
       })
