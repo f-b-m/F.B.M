@@ -14,13 +14,13 @@ const styles = theme => ({
   },
 });
 
-function FormLogin(props) {
+function FormContent(props) {
   const { classes } = props;
 
   return (
     <form className={classes.container} noValidate autoComplete="off">
       <TextField
-        id="filled-email-input"
+        id="filled-title"
         label="Email"
         className={classes.textField}
         fullWidth
@@ -45,8 +45,8 @@ function FormLogin(props) {
   );
 }
 
-FormLogin.propTypes = {
+FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(FormLogin);
+export default withStyles(styles)(FormContent);
