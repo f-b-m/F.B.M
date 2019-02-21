@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import { sessionApi, registrationApi} from '../modules/API';
 
 const styles = theme => ({
   container: {
@@ -12,37 +14,85 @@ const styles = theme => ({
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
   },
+  button: {
+    margin: theme.spacing.unit,
+  },
 });
 
-function FormLogin(props) {
-  const { classes } = props;
+class FormLogin extends React.Component {
+  constructor(props) {
+    super(props);
 
-  return (
-    <form className={classes.container} noValidate autoComplete="off">
-      <TextField
-        id="filled-email-input"
-        label="Email"
-        className={classes.textField}
-        fullWidth
-        type="email"
-        name="email"
-        autoComplete="email"
-        margin="normal"
-        variant="filled"
-      />
+    this.state = {
+      email: '',
+      password: '',
+    };
+  }
 
-      <TextField
-        id="filled-password-input"
-        label="Password"
-        className={classes.textField}
-        fullWidth
-        type="password"
-        autoComplete="current-password"
-        margin="normal"
-        variant="filled"
-      />
-    </form>
-  );
+  handleChange = name => (event) => {
+    this.setState({
+      [name]: event.target.value,
+    });
+  };
+
+  handleSubmit = () => (event) => {
+    event.preventDefault();
+
+    const { email, password } = this.state;
+
+    sessionApi.login({ email, password })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    const { classes } = this.props;
+    const { email, password } = this.state;
+
+    return (
+      <form className={classes.container} noValidate autoComplete="off">
+        <TextField
+          id="filled-email-input"
+          label="Email"
+          className={classes.textField}
+          onChange={this.handleChange('email')}
+          fullWidth
+          type="email"
+          name="email"
+          value={email}
+          autoComplete="email"
+          margin="normal"
+          variant="filled"
+        />
+
+        <TextField
+          id="filled-password-input"
+          label="Password"
+          className={classes.textField}
+          onChange={this.handleChange('password')}
+          fullWidth
+          value={password}
+          type="password"
+          autoComplete="current-password"
+          margin="normal"
+          variant="filled"
+        />
+
+        <Button
+          variant="contained"
+          color="primary"
+          className={classes.button}
+          onClick={this.handleSubmit()}
+        >
+          Log In
+        </Button>
+      </form>
+    );
+  }
 }
 
 FormLogin.propTypes = {
