@@ -28,7 +28,7 @@ const styles = theme => ({
   },
 });
 
-class ButtonLogin extends React.Component {
+class AreaAuth extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -129,8 +129,8 @@ class ButtonLogin extends React.Component {
   }
 }
 
-ButtonLogin.propTypes = {
+AreaAuth.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(ButtonLogin);
+export default withStyles(styles)(AreaAuth);
