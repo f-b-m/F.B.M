@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import EditIcon from '@material-ui/icons/Edit';
+import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
@@ -56,13 +56,13 @@ class SimpleTooltips extends React.Component {
 
     return (
       <div>
-        <Tooltip title="Edit" aria-label="Edit">
+        <Tooltip title="新規作成" aria-label="新規作成">
           <Fab
             onClick={this.handleOpen}
             color="secondary"
             className={classes.absolute}
           >
-            <EditIcon />
+            <AddIcon />
           </Fab>
         </Tooltip>
         <Modal
@@ -72,7 +72,7 @@ class SimpleTooltips extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent />
+            <FormContent action='作成' />
           </div>
         </Modal>
       </div>

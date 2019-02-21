@@ -27,34 +27,37 @@ class FormContent extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes , action} = this.props;
     const { title, content } = this.state;
 
     return (
-      <form className={classes.container} noValidate autoComplete="off">
-        <TextField
-          id="filled-title"
-          label="title"
-          className={classes.textField}
-          onChange={this.handleChange('title')}
-          fullWidth
-          value={title}
-          margin="normal"
-          variant="filled"
-        />
+      <div>
+        {`メニューを${action}します`}
+        <form>
+          <TextField
+            id="filled-title"
+            label="title"
+            className={classes.textField}
+            onChange={this.handleChange('title')}
+            fullWidth
+            value={title}
+            margin="normal"
+            variant="filled"
+          />
 
-        <TextField
-          id="filled-password-input"
-          label="content"
-          className={classes.textField}
-          onChange={this.handleChange('content')}
-          fullWidth
-          multiline
-          value={content}
-          margin="normal"
-          variant="filled"
-        />
-      </form>
+          <TextField
+            id="filled-password-input"
+            label="content"
+            className={classes.textField}
+            onChange={this.handleChange('content')}
+            fullWidth
+            multiline
+            value={content}
+            margin="normal"
+            variant="filled"
+          />
+        </form>
+      </div>
     );
   }
 }
