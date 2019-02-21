@@ -44,20 +44,17 @@ class CenteredGrid extends React.Component {
     return (
       <div className={classes.root}>
         <Grid container spacing={24}>
-          {menus.map(elm =>
-            (
-              <Grid item xs={12} key={elm.id}>
-                <Paper className={classes.paper}>
-                  タイトル: {elm.title}, 内容: {elm.content}
-                 </Paper>
-              </Grid>
-            )
-          )};
+          {menus.map(elm => (
+            <Grid item xs={12} key={elm.id}>
+              <Paper className={classes.paper}>
+                {`タイトル: ${elm.title}，内容: ${elm.content}`}
+              </Paper>
+            </Grid>
+          ))}
         </Grid>
       </div>
     );
   }
-
 }
 
 CenteredGrid.propTypes = {
