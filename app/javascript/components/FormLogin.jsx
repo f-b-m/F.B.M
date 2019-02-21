@@ -38,11 +38,14 @@ class FormLogin extends React.Component {
   handleSubmit = () => (event) => {
     event.preventDefault();
 
+    const { modalHandleClose, toBeLogIn } = this.props;
     const { email, password } = this.state;
 
     sessionApi.login({ email, password })
       .then((response) => {
         console.log(response);
+        toBeLogIn();
+        modalHandleClose();
       })
       .catch((error) => {
         console.log(error);
@@ -97,6 +100,8 @@ class FormLogin extends React.Component {
 
 FormLogin.propTypes = {
   classes: PropTypes.object.isRequired,
+  modalHandleClose: PropTypes.object.isRequired,
+  toBeLogIn: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(FormLogin);
