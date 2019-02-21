@@ -9,7 +9,6 @@ class MenusController < ApplicationController
 
   def create
     menu = Menu.new(params.permit(:title, :content, :user_id))
-    menu.user_id = current_user.id
     menu.save
     render :body => nil, :status => 200
   end
