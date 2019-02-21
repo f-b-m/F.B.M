@@ -87,7 +87,7 @@ class FormLogin extends React.Component {
         />
 
         <TextField
-          id="filled-password-input"
+          id="filled-password-confirmation-input"
           label="Password Confirmation"
           className={classes.textField}
           onChange={this.handleChange('passwordConfirmation')}
