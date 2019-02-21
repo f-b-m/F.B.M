@@ -67,7 +67,7 @@ class ButtonLogin extends React.Component {
     const logOutButton = (
       <div>
         <Button onClick={this.toBeLogOut} color="inherit">
-          ログアウト
+          Log Out
         </Button>
       </div>
     );
@@ -75,7 +75,7 @@ class ButtonLogin extends React.Component {
     const logInButton = (
       <div>
         <Button onClick={this.handleOpen} color="inherit">
-          ログイン
+          Log In
         </Button>
         <Modal
           aria-labelledby="simple-modal-title"
