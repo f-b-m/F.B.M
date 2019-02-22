@@ -50,8 +50,24 @@ class CenteredGrid extends React.Component {
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
-              <TooltipsEditButton menuId={elm.id} userId={1} />
-              <TooltipsDeleteButton menuId={elm.id} />
+              <TooltipsEditButton
+                menuId={elm.id}
+                userId={userId}
+                isOpenMenuModal={isOpenMenuModal}
+                addMenu={addMenu}
+                editMenu={editMenu}
+                deleteMenu={deleteMenu}
+                toggleMenuModal={toggleMenuModal}
+              />
+              <TooltipsDeleteButton
+                menuId={elm.id}
+                userId={userId}
+                isOpenMenuModal={isOpenMenuModal}
+                addMenu={addMenu}
+                editMenu={editMenu}
+                deleteMenu={deleteMenu}
+                toggleMenuModal={toggleMenuModal}
+              />
               <Button
                 variant="outlined"
                 className={classes.button}
