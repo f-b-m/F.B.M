@@ -26,7 +26,7 @@ class FormLogin extends React.Component {
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: '',
+      password_confirmation: '',
     };
   }
 
@@ -40,9 +40,9 @@ class FormLogin extends React.Component {
     event.preventDefault();
 
     const { modalHandleClose, toBeLogIn } = this.props;
-    const { email, password, passwordConfirmation } = this.state;
+    const { email, password, password_confirmation } = this.state;
 
-    registrationApi.signUp({ email, password, passwordConfirmation })
+    registrationApi.signUp({ email, password, password_confirmation })
       .then((response) => {
         console.log(response);
         toBeLogIn();
@@ -55,7 +55,7 @@ class FormLogin extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { email, password, passwordConfirmation } = this.state;
+    const { email, password, password_confirmation } = this.state;
 
     return (
       <form className={classes.container} noValidate autoComplete="off">
@@ -90,9 +90,9 @@ class FormLogin extends React.Component {
           id="filled-password-confirmation-input"
           label="Password Confirmation"
           className={classes.textField}
-          onChange={this.handleChange('passwordConfirmation')}
+          onChange={this.handleChange('password_confirmation')}
           fullWidth
-          value={passwordConfirmation}
+          value={password_confirmation}
           type="password"
           autoComplete="current-password"
           margin="normal"
