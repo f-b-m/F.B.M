@@ -2,7 +2,7 @@ import { modalActionType, modalInitialObject } from '../actions';
 
 const modals = (state = modalInitialObject, action) => {
   switch (action.type) {
-    case modalActionType.toggleLogIn:
+    case modalActionType.toggleLogInModal:
       return Object.assign({}, state, {
         isOpenLogInModal: !state.isOpenLogInModal,
       });

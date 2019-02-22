@@ -30,49 +30,28 @@ const styles = theme => ({
 });
 
 class AreaAuth extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isOpenLogin: false,
-      isLogIn: false,
-      isOpenSignup: false,
-    };
-  }
-
-  handleOpenLogin = () => {
-    this.setState({ isOpenLogin: true });
-  };
-
-  handleCloseLogin = () => {
-    this.setState({ isOpenLogin: false });
-  };
-
-  handleOpenSignup = () => {
-    this.setState({ isOpenSignup: true });
-  };
-
-  handleCloseSignup = () => {
-    this.setState({ isOpenSignup: false });
-  };
-
   toBeLogOut = () => {
+    const { toggleLogIn, deleteUserId } = this.props;
     sessionApi.logout()
       .then((response) => {
         console.log(response);
-        this.setState({ isLogIn: false });
+        toggleLogIn();
+        deleteUserId();
       })
       .catch((error) => {
         console.log(error);
       });
   };
 
-  toBeLogIn = () => {
-    this.setState({ isLogIn: true });
-  };
-
   render() {
     const { classes } = this.props;
-    const { isOpenLogin, isOpenSignup, isLogIn } = this.state;
+    const {
+      userInfo, isLogIn, isOpenLogInModal, isOpenSignUpModal,
+    } = this.props;
+    const {
+      setUserId, changeCredential,
+      toggleLogIn, toggleLogInModal, toggleSignUpModal,
+    } = this.props;
 
     const logOutButton = (
       <div>
@@ -84,36 +63,42 @@ class AreaAuth extends React.Component {
 
     const logInButton = (
       <div>
-        <Button onClick={this.handleOpenSignup} color="inherit">
+        <Button onClick={toggleSignUpModal} color="inherit">
           Sign Up
         </Button>
         <Modal
           aria-labelledby="signup-modal-title"
           aria-describedby="signup-modal-description"
-          open={isOpenSignup}
-          onClose={this.handleCloseSignup}
+          open={isOpenSignUpModal}
+          onClose={toggleSignUpModal}
         >
           <div style={getModalStyle()} className={classes.paper}>
             <FormSignup
-              modalHandleClose={this.handleCloseSignup}
-              toBeLogIn={this.toBeLogIn}
+              modalHandleClose={toggleSignUpModal}
+              toBeLogIn={toggleLogIn}
+              userInfo={userInfo}
+              changeCredential={changeCredential}
+              setUserId={setUserId}
             />
           </div>
         </Modal>
 
-        <Button onClick={this.handleOpenLogin} color="inherit">
+        <Button onClick={toggleLogInModal} color="inherit">
           Log In
         </Button>
         <Modal
           aria-labelledby="login-modal-title"
           aria-describedby="login-modal-description"
-          open={isOpenLogin}
-          onClose={this.handleCloseLogin}
+          open={isOpenLogInModal}
+          onClose={toggleLogInModal}
         >
           <div style={getModalStyle()} className={classes.paper}>
             <FormLogin
-              modalHandleClose={this.handleCloseLogin}
-              toBeLogIn={this.toBeLogIn}
+              modalHandleClose={toggleLogInModal}
+              toBeLogIn={toggleLogIn}
+              userInfo={userInfo}
+              changeCredential={changeCredential}
+              setUserId={setUserId}
             />
           </div>
         </Modal>
@@ -130,6 +115,16 @@ class AreaAuth extends React.Component {
 
 AreaAuth.propTypes = {
   classes: PropTypes.object.isRequired,
+  userInfo: PropTypes.object.isRequired,
+  isLogIn: PropTypes.bool.isRequired,
+  isOpenLogInModal: PropTypes.bool.isRequired,
+  isOpenSignUpModal: PropTypes.bool.isRequired,
+  setUserId: PropTypes.func.isRequired,
+  deleteUserId: PropTypes.func.isRequired,
+  changeCredential: PropTypes.object.isRequired,
+  toggleLogIn: PropTypes.func.isRequired,
+  toggleLogInModal: PropTypes.func.isRequired,
+  toggleSignUpModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(AreaAuth);

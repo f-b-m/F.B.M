@@ -9,8 +9,8 @@ export const authActionTypes = {
 
 export const authInitialObject = {
   userId: '',
-  eail: '',
-  pssword: '',
+  email: '',
+  password: '',
   passwordConfirmation: '',
   isLogIn: false,
 };
