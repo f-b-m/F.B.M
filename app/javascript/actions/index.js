@@ -8,7 +8,7 @@ export const authActionTypes = {
 };
 
 export const authInitialObject = {
-  userId: '',
+  userId: -1,
   email: '',
   password: '',
   passwordConfirmation: '',

@@ -9,7 +9,7 @@ const auths = (state = authInitialObject, action) => {
 
     case authActionTypes.deleteUserId:
       return Object.assign({}, state, {
-        uerId: '',
+        uerId: -1,
       });
 
     case authActionTypes.changeEmail:

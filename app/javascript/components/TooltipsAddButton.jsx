@@ -37,51 +37,53 @@ const styles = theme => ({
   },
 });
 
-class TooltipsAddButton extends React.Component {
-  state = {
-    open: false,
-  };
+function TooltipsAddButton(props) {
+  const { classes } = props;
+  const { userId, isOpenMenuModal } = props;
+  const {
+    addMenu, editMenu, deleteMenu, toggleMenuModal,
+  } = props;
 
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes } = this.props;
-    const { open } = this.state;
-
-    return (
-      <div>
-        <Tooltip title="Create" aria-label="Create">
-          <Fab
-            onClick={this.handleOpen}
-            color="secondary"
-            className={classes.absolute}
-          >
-            <AddIcon />
-          </Fab>
-        </Tooltip>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={open}
-          onClose={this.handleClose}
+  return (
+    <div>
+      <Tooltip title="Create" aria-label="Create">
+        <Fab
+          onClick={toggleMenuModal}
+          color="secondary"
+          className={classes.absolute}
         >
-          <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action="Create" modalHandleClose={this.handleClose} />
-          </div>
-        </Modal>
-      </div>
-    );
-  }
+          <AddIcon />
+        </Fab>
+      </Tooltip>
+      <Modal
+        aria-labelledby="menu-modal-title"
+        aria-describedby="menu-modal-description"
+        open={isOpenMenuModal}
+        onClose={toggleMenuModal}
+      >
+        <div style={getModalStyle()} className={classes.paper}>
+          <FormContent
+            action="Create"
+            userId={userId}
+            addMenu={addMenu}
+            editMenu={editMenu}
+            deleteMenu={deleteMenu}
+            modalHandleClose={toggleMenuModal}
+          />
+        </div>
+      </Modal>
+    </div>
+  );
 }
 
 TooltipsAddButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
+  isOpenMenuModal: PropTypes.bool.isRequired,
+  addMenu: PropTypes.func.isRequired,
+  editMenu: PropTypes.func.isRequired,
+  deleteMenu: PropTypes.func.isRequired,
+  toggleMenuModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TooltipsAddButton);
