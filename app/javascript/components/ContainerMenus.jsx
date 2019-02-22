@@ -2,7 +2,9 @@ import { connect } from 'react-redux';
 import GridLayout from './GridLayout';
 import ToolTipsAddButton from './TooltipsAddButton';
 import { toggleMenuModal } from '../actions/modal';
-import { addMenu, editMenu, deleteMenu } from '../actions/menu';
+import {
+  getAllMenus, addMenu, editMenu, deleteMenu,
+} from '../actions/menu';
 
 const mapStateToProps = state => ({
   userId: state.auths.userId,
@@ -11,6 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+  getAllMenus: menus => dispatch(getAllMenus(menus)),
   addMenu: (menuId, title, content) => {
     dispatch(addMenu(menuId, title, content));
   },
