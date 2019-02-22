@@ -16,6 +16,7 @@ export const authInitialObject = {
 };
 
 export const menuActionType = {
+  getAll: 'GET_ALL_MENU',
   add: 'ADD_MENU',
   edit: 'EDIT_MENU',
   delete: 'DELETE_MENU',

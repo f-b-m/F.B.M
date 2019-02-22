@@ -2,6 +2,9 @@ import { menuActionType } from '../actions';
 
 const menus = (state = [], action) => {
   switch (action.type) {
+    case menuActionType.getAll:
+      return action.menus;
+
     case menuActionType.add:
       return [
         ...state,

@@ -1,5 +1,10 @@
 import { menuActionType } from '.';
 
+export const getAllMenus = menus => ({
+  type: menuActionType.getAll,
+  menus,
+});
+
 export const addMenu = (menuId, title, content) => ({
   type: menuActionType.add,
   menuId,
