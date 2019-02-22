@@ -18,3 +18,9 @@ export const modalActionType = {
   toggleSignUpModal: 'TOGGLE_SIGN_UP_MODAL',
   toggleMenuModal: 'TOGGLE_MENU_MODAL',
 };
+
+export const modalInitialObject = {
+  isOpenLogInModal: false,
+  isOpenSignUpModal: false,
+  isOpenMenuModal: false,
+};
