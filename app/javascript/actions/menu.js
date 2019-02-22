@@ -18,7 +18,3 @@ export const deleteMenu = menuId => ({
   type: menuActionType.delete,
   menuId,
 });
-
-export const toggleMenuModal = () => ({
-  type: menuActionType.toggleMenuModal,
-});

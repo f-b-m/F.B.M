@@ -29,11 +29,3 @@ export const changePasswordConfirmation = text => ({
 export const toggleLogIn = () => ({
   type: authActionTypes.toggleLogIn,
 });
-
-export const toggleLogInModal = () => ({
-  type: authActionTypes.toggleLogInModal,
-});
-
-export const toggleSignUpModal = () => ({
-  type: authActionTypes.toggleSignUpModal,
-});
