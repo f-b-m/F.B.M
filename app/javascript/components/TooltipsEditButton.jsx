@@ -77,7 +77,7 @@ class TooltipsEditButton extends React.Component {
 
 TooltipsEditButton.propTypes = {
   classes: PropTypes.object.isRequired,
-  menuId: PropTypes.object.isRequired,
+  menuId: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(TooltipsEditButton);

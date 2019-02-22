@@ -131,9 +131,9 @@ class FormContent extends React.Component {
 
 FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
-  menuId: PropTypes.object.isRequired,
-  action: PropTypes.object.isRequired,
-  modalHandleClose: PropTypes.object.isRequired,
+  menuId: PropTypes.number.isRequired,
+  action: PropTypes.string.isRequired,
+  modalHandleClose: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(FormContent);

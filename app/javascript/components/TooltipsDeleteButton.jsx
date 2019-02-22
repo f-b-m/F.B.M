@@ -76,7 +76,7 @@ class TooltipsDeleteButton extends React.Component {
 
 TooltipsDeleteButton.propTypes = {
   classes: PropTypes.object.isRequired,
-  menuId: PropTypes.object.isRequired,
+  menuId: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(TooltipsDeleteButton);
