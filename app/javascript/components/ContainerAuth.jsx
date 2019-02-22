@@ -27,8 +27,8 @@ const mapDispatchToProps = dispatch => ({
     changePasswordConf: text => dispatch(changePasswordConfirmation(text)),
   },
   toggleLogIn: text => dispatch(toggleLogIn(text)),
-  toggleLogInModal: text => dispatch(toggleLogInModal(text)),
-  toggleSignUpModal: text => dispatch(toggleSignUpModal(text)),
+  toggleLogInModal: () => dispatch(toggleLogInModal()),
+  toggleSignUpModal: () => dispatch(toggleSignUpModal()),
 });
 
 export default connect(
