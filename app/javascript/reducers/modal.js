@@ -1,6 +1,6 @@
 import { modalActionType, modalInitialObject } from '../actions';
 
-const menus = (state = modalInitialObject, action) => {
+const modals = (state = modalInitialObject, action) => {
   switch (action.type) {
     case modalActionType.toggleLogIn:
       return Object.assign({}, state, {
@@ -22,4 +22,4 @@ const menus = (state = modalInitialObject, action) => {
   }
 };
 
-export default menus;
+export default modals;

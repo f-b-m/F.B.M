@@ -7,6 +7,14 @@ export const authActionTypes = {
   toggleLogIn: 'TOGGLE_LOG_IN',
 };
 
+export const authInitialObject = {
+  userId: '',
+  eail: '',
+  pssword: '',
+  passwordConfirmation: '',
+  isLogIn: false,
+};
+
 export const menuActionType = {
   add: 'ADD_MENU',
   edit: 'EDIT_MENU',

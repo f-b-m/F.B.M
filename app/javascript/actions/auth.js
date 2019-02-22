@@ -5,9 +5,8 @@ export const setUserId = userId => ({
   userId,
 });
 
-export const deleteUserId = userId => ({
+export const deleteUserId = () => ({
   type: authActionTypes.deleteUserId,
-  userId,
 });
 
 export const changeEmail = text => ({
