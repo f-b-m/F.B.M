@@ -3,8 +3,10 @@ import auths from './auth';
 import menus from './menu';
 import modals from './modal';
 
-export default combineReducers({
+const rootReducer = combineReducers({
   auths,
   menus,
   modals,
 });
+
+export default rootReducer;
