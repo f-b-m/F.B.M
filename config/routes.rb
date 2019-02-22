@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   delete 'menus/delete', to: 'menus#destroy'
   patch 'menus/update', to: 'menus#update'
 
+  get 'menu_detail/', to: 'menu_details#menu_detail'  
+
 end
