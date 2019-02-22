@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import GridLayout from './GridLayout';
-import ToolTipsAddButton from './TooltipsAddButton';
+import { ContainerMenus, ContainerTooltipsAddButton } from './ContainerMenus';
 
 const styles = {
   root: {
@@ -21,8 +20,8 @@ function FBMBody(props) {
   const { classes } = props;
   return (
     <div className={classes.root}>
-      <GridLayout />
-      <ToolTipsAddButton />
+      <ContainerMenus />
+      <ContainerTooltipsAddButton />
     </div>
   );
 }
