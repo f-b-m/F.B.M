@@ -24,7 +24,7 @@ const auths = (state = authInitialObject, action) => {
 
     case authActionTypes.changePasswordConfirmation:
       return Object.assign({}, state, {
-        passwordConfirmation: action.passwordConfirmation,
+        passwordConfirmation: action.text,
       });
 
     case authActionTypes.toggleLogIn:

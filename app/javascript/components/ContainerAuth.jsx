@@ -24,8 +24,8 @@ const mapDispatchToProps = dispatch => ({
   changeCredential: {
     changeEmail: text => dispatch(changeEmail(text)),
     changePassword: text => dispatch(changePassword(text)),
+    changePasswordConf: text => dispatch(changePasswordConfirmation(text)),
   },
-  changePasswordConf: text => dispatch(changePasswordConfirmation(text)),
   toggleLogIn: text => dispatch(toggleLogIn(text)),
   toggleLogInModal: text => dispatch(toggleLogInModal(text)),
   toggleSignUpModal: text => dispatch(toggleSignUpModal(text)),
