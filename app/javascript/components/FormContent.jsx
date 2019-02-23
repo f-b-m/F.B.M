@@ -19,7 +19,8 @@ const styles = theme => ({
 
 class FormContent extends React.Component {
   handleClickCreate = () => {
-    const { title, content } = this.state;
+    const { menuForm } = this.props;
+    const { title, content } = menuForm;
     axios.post('menus/create',
       {
         title,
@@ -27,7 +28,9 @@ class FormContent extends React.Component {
       })
       .then(() => {
         const { modalHandleClose } = this.props;
+        const { addMenu } = this.props;
         modalHandleClose();
+        addMenu();
         // location.reload();
       });
     // .then((error) => {
@@ -36,8 +39,8 @@ class FormContent extends React.Component {
   }
 
   handleClickEdit = () => {
-    const { menuId } = this.props;
-    const { title, content } = this.state;
+    const { menuForm } = this.props;
+    const { menuId, title, content } = menuForm;
     axios({
       method: 'patch',
       url: '/menus/update',
@@ -49,7 +52,9 @@ class FormContent extends React.Component {
     })
       .then(() => {
         const { modalHandleClose } = this.props;
+        const { editMenu } = this.props;
         modalHandleClose();
+        editMenu();
         // location.reload();
       });
     // .then((error) => {
@@ -67,7 +72,9 @@ class FormContent extends React.Component {
       })
       .then(() => {
         const { modalHandleClose } = this.props;
+        const { deleteMenu } = this.props;
         modalHandleClose();
+        deleteMenu();
         // location.reload();
       });
     // .then((error) => {
@@ -77,7 +84,8 @@ class FormContent extends React.Component {
 
   render() {
     const { classes, action, disabled } = this.props;
-    const { title, content } = this.state;
+    const { menuForm } = this.props;
+    const { changeTitle, changeContent } = this.props;
     const handleClickAction = `handleClick${action}`;
 
     return (
@@ -88,10 +96,10 @@ class FormContent extends React.Component {
             id="filled-title"
             label="title"
             className={classes.textField}
-            onChange={this.handleChange('title')}
+            onChange={e => changeTitle(e.target.value)}
             fullWidth
             disabled={disabled}
-            value={title}
+            value={menuForm.title}
             margin="normal"
             variant="filled"
           />
@@ -100,11 +108,11 @@ class FormContent extends React.Component {
             id="filled-password-input"
             label="content"
             className={classes.textField}
-            onChange={this.handleChange('content')}
+            onChange={e => changeContent(e.target.value)}
             fullWidth
             disabled={disabled}
             multiline
-            value={content}
+            value={menuForm.content}
             margin="normal"
             variant="filled"
           />
@@ -119,9 +127,16 @@ class FormContent extends React.Component {
 
 FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
-  menuId: PropTypes.number.isRequired,
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
+  // userId: PropTypes.number.isRequired,
+  menuId: PropTypes.number.isRequired,
+  menuForm: PropTypes.object.isRequired,
+  addMenu: PropTypes.func.isRequired,
+  editMenu: PropTypes.func.isRequired,
+  deleteMenu: PropTypes.func.isRequired,
+  changeTitle: PropTypes.func.isRequired,
+  changeContent: PropTypes.func.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
 };
 
