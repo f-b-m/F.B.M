@@ -1,15 +1,19 @@
 import { connect } from 'react-redux';
 import GridLayout from './GridLayout';
 import ToolTipsAddButton from './TooltipsAddButton';
-import { toggleMenuModal } from '../actions/modal';
+import {
+  toggleCreateMenuModal, toggleEditMenuModal, toggleDeleteMenuModal,
+} from '../actions/modal';
 import {
   getAllMenus, addMenu, editMenu, deleteMenu,
 } from '../actions/menu';
 
 const mapStateToProps = state => ({
   userId: state.auths.userId,
-  menus: state.menes,
-  isOpenMenuModal: state.isOpenMenuModal,
+  menus: state.menus,
+  isOpenCreateMenuModal: state.modals.isOpenCreateMenuModal,
+  isOpenEditMenuModal: state.modals.isOpenEditMenuModal,
+  isOpenDeleteMenuModal: state.modals.isOpenDeleteMenuModal,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -21,7 +25,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch(editMenu(menuId, title, content));
   },
   deleteMenu: menuId => dispatch(deleteMenu(menuId)),
-  toggleMenuModal: () => dispatch(toggleMenuModal()),
+  toggleCreateMenuModal: () => dispatch(toggleCreateMenuModal()),
+  toggleEditMenuModal: () => dispatch(toggleEditMenuModal()),
+  toggleDeleteMenuModal: () => dispatch(toggleDeleteMenuModal()),
 });
 
 export const ContainerMenus = connect(
