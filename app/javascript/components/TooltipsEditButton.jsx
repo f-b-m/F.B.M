@@ -51,8 +51,8 @@ function TooltipsEditButton(props) {
         </Fab>
       </Tooltip>
       <Modal
-        aria-labelledby="menu-modal-title"
-        aria-describedby="menu-modal-description"
+        aria-labelledby="edit-menu-modal-title"
+        aria-describedby="edit-menu-modal-description"
         open={isOpenEditMenuModal}
         onClose={toggleEditMenuModal}
       >

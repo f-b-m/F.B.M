@@ -32,51 +32,54 @@ const styles = theme => ({
   },
 });
 
-class TooltipsDeleteButton extends React.Component {
-  state = {
-    open: false,
-  };
+function TooltipsDeleteButton(props) {
+  const { classes } = props;
+  const { userId, menuId, isOpenDeleteMenuModal } = props;
+  const {
+    addMenu, editMenu, deleteMenu, toggleDeleteMenuModal,
+  } = props;
 
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes, menuId } = this.props;
-    const { open } = this.state;
-
-    return (
-      <div>
-        <Tooltip title="Delete" aria-label="Delete">
-          <Fab
-            onClick={this.handleOpen}
-            color="secondary"
-          >
-            <DeleteIcon />
-          </Fab>
-        </Tooltip>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={open}
-          onClose={this.handleClose}
+  return (
+    <div>
+      <Tooltip title="Delete" aria-label="Delete">
+        <Fab
+          onClick={toggleDeleteMenuModal}
+          color="secondary"
         >
-          <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action="Delete" disabled menuId={menuId} modalHandleClose={this.handleClose} />
-          </div>
-        </Modal>
-      </div>
-    );
-  }
+          <DeleteIcon />
+        </Fab>
+      </Tooltip>
+      <Modal
+        aria-labelledby="delete-menu-modal-title"
+        aria-describedby="delete-menu-modal-description"
+        open={isOpenDeleteMenuModal}
+        onClose={toggleDeleteMenuModal}
+      >
+        <div style={getModalStyle()} className={classes.paper}>
+          <FormContent
+            action="Delete"
+            userId={userId}
+            menuId={menuId}
+            addMenu={addMenu}
+            editMenu={editMenu}
+            deleteMenu={deleteMenu}
+            modalHandleClose={toggleDeleteMenuModal}
+          />
+        </div>
+      </Modal>
+    </div>
+  );
 }
 
 TooltipsDeleteButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
   menuId: PropTypes.number.isRequired,
+  isOpenDeleteMenuModal: PropTypes.bool.isRequired,
+  addMenu: PropTypes.func.isRequired,
+  editMenu: PropTypes.func.isRequired,
+  deleteMenu: PropTypes.func.isRequired,
+  toggleDeleteMenuModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TooltipsDeleteButton);

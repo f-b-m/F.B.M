@@ -56,8 +56,8 @@ function TooltipsAddButton(props) {
         </Fab>
       </Tooltip>
       <Modal
-        aria-labelledby="menu-modal-title"
-        aria-describedby="menu-modal-description"
+        aria-labelledby="create-menu-modal-title"
+        aria-describedby="create-menu-modal-description"
         open={isOpenCreateMenuModal}
         onClose={toggleCreateMenuModal}
       >
