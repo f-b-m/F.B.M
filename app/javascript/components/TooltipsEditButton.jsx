@@ -32,52 +32,55 @@ const styles = theme => ({
   },
 });
 
-class TooltipsEditButton extends React.Component {
-  state = {
-    open: false,
-  };
+function TooltipsEditButton(props) {
+  const { classes } = props;
+  const { userId, menuId, isOpenEditMenuModal } = props;
+  const {
+    addMenu, editMenu, deleteMenu, toggleEditMenuModal,
+  } = props;
 
-  handleOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-  };
-
-  render() {
-    const { classes, menuId } = this.props;
-    const { open } = this.state;
-
-    return (
-      <div>
-        <Tooltip title="Edit" aria-label="Edit">
-          <Fab
-            onClick={this.handleOpen}
-            color="secondary"
-            className={classes.absolute}
-          >
-            <EditIcon />
-          </Fab>
-        </Tooltip>
-        <Modal
-          aria-labelledby="simple-modal-title"
-          aria-describedby="simple-modal-description"
-          open={open}
-          onClose={this.handleClose}
+  return (
+    <div>
+      <Tooltip title="Edit" aria-label="Edit">
+        <Fab
+          onClick={toggleEditMenuModal}
+          color="secondary"
+          className={classes.absolute}
         >
-          <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action="Edit" disabled={false} menuId={menuId} modalHandleClose={this.handleClose} />
-          </div>
-        </Modal>
-      </div>
-    );
-  }
+          <EditIcon />
+        </Fab>
+      </Tooltip>
+      <Modal
+        aria-labelledby="menu-modal-title"
+        aria-describedby="menu-modal-description"
+        open={isOpenEditMenuModal}
+        onClose={toggleEditMenuModal}
+      >
+        <div style={getModalStyle()} className={classes.paper}>
+          <FormContent
+            action="Edit"
+            userId={userId}
+            menuId={menuId}
+            addMenu={addMenu}
+            editMenu={editMenu}
+            deleteMenu={deleteMenu}
+            modalHandleClose={toggleEditMenuModal}
+          />
+        </div>
+      </Modal>
+    </div>
+  );
 }
 
 TooltipsEditButton.propTypes = {
   classes: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
   menuId: PropTypes.number.isRequired,
+  isOpenEditMenuModal: PropTypes.bool.isRequired,
+  addMenu: PropTypes.func.isRequired,
+  editMenu: PropTypes.func.isRequired,
+  deleteMenu: PropTypes.func.isRequired,
+  toggleEditMenuModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TooltipsEditButton);
