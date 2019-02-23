@@ -12,9 +12,19 @@ const modals = (state = modalInitialObject, action) => {
         isOpenSignUpModal: !state.isOpenSignUpModal,
       });
 
-    case modalActionType.toggleMenuModal:
+    case modalActionType.toggleCreateMenuModal:
       return Object.assign({}, state, {
-        isOpenMenuModal: !state.isOpenMenuModal,
+        isOpenCreateMenuModal: !state.isOpenCreateMenuModal,
+      });
+
+    case modalActionType.toggleEditMenuModal:
+      return Object.assign({}, state, {
+        isOpenEditMenuModal: !state.isOpenEditMenuModal,
+      });
+
+    case modalActionType.toggleDeleteMenuModal:
+      return Object.assign({}, state, {
+        isOpenDeleteMenuModal: !state.isOpenDeleteMenuModal,
       });
 
     default:

@@ -25,11 +25,15 @@ export const menuActionType = {
 export const modalActionType = {
   toggleLogInModal: 'TOGGLE_LOG_IN_MODAL',
   toggleSignUpModal: 'TOGGLE_SIGN_UP_MODAL',
-  toggleMenuModal: 'TOGGLE_MENU_MODAL',
+  toggleCreateMenuModal: 'TOGGLE_CREATE_MENU_MODAL',
+  toggleEditMenuModal: 'TOGGLE_EDIT_MENU_MODAL',
+  toggleDeleteMenuModal: 'TOGGLE_DELETE_MENU_MODAL',
 };
 
 export const modalInitialObject = {
   isOpenLogInModal: false,
   isOpenSignUpModal: false,
-  isOpenMenuModal: false,
+  isOpenCreateMenuModal: false,
+  isOpenEditMenuModal: false,
+  isOpenDeleteMenuModal: false,
 };

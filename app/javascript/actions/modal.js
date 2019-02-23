@@ -8,6 +8,14 @@ export const toggleSignUpModal = () => ({
   type: modalActionType.toggleSignUpModal,
 });
 
-export const toggleMenuModal = () => ({
-  type: modalActionType.toggleMenuModal,
+export const toggleCreateMenuModal = () => ({
+  type: modalActionType.toggleCreateMenuModal,
+});
+
+export const toggleEditMenuModal = () => ({
+  type: modalActionType.toggleEditMenuModal,
+});
+
+export const toggleDeleteMenuModal = () => ({
+  type: modalActionType.toggleDeleteMenuModal,
 });
