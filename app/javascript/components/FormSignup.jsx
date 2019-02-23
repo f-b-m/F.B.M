@@ -29,7 +29,7 @@ class FormSinup extends React.Component {
     const { setUserId } = this.props;
     console.log(passwordConfirmation);
 
-    registrationApi.signUp({ email, password, password_confirmation })
+    registrationApi.signUp({ email, password, passwordConfirmation })
       .then((response) => {
         console.log(response);
         toBeLogIn();

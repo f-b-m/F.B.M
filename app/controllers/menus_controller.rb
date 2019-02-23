@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  before_action :authenticate_user!, only: [:destroy, :create, :update]
+
   def menu
   end
 
