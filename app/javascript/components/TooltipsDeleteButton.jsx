@@ -62,6 +62,7 @@ function TooltipsDeleteButton(props) {
           <FormContent
             action="Delete"
             userId={userId}
+            disabled
             menuId={menuId}
             menuForm={menuForm}
             addMenu={addMenu}

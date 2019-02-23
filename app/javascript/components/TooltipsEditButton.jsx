@@ -35,7 +35,7 @@ const styles = theme => ({
 function TooltipsEditButton(props) {
   const { classes } = props;
   const {
-    userId, menuId, isOpenEditMenuModal, menuForm
+    userId, menuId, isOpenEditMenuModal, menuForm,
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleEditMenuModal,
@@ -62,6 +62,7 @@ function TooltipsEditButton(props) {
         <div style={getModalStyle()} className={classes.paper}>
           <FormContent
             action="Edit"
+            disabled={false}
             userId={userId}
             menuId={menuId}
             menuForm={menuForm}

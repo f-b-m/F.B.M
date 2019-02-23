@@ -4,12 +4,12 @@ const menuForm = (state = { title: '', content: '' }, action) => {
   switch (action.type) {
     case menuFormActionType.changeTitle:
       return Object.assign({}, state, {
-        password: action.text,
+        title: action.text,
       });
 
     case menuFormActionType.changeContent:
       return Object.assign({}, state, {
-        password: action.text,
+        content: action.text,
       });
 
     default:

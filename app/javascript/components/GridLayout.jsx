@@ -58,25 +58,25 @@ class CenteredGrid extends React.Component {
                 menuId={elm.id}
                 userId={userId}
                 menuForm={menuForm}
-                isOpenMenuModal={isOpenEditMenuModal}
+                isOpenEditMenuModal={isOpenEditMenuModal}
                 addMenu={addMenu}
                 editMenu={editMenu}
                 deleteMenu={deleteMenu}
                 changeTitle={changeTitle}
                 changeContent={changeContent}
-                toggleMenuModal={toggleEditMenuModal}
+                toggleEditMenuModal={toggleEditMenuModal}
               />
               <TooltipsDeleteButton
                 menuId={elm.id}
                 userId={userId}
                 menuForm={menuForm}
-                isOpenMenuModal={isOpenDeleteMenuModal}
+                isOpenDeleteMenuModal={isOpenDeleteMenuModal}
                 addMenu={addMenu}
                 editMenu={editMenu}
                 deleteMenu={deleteMenu}
                 changeTitle={changeTitle}
                 changeContent={changeContent}
-                toggleMenuModal={toggleDeleteMenuModal}
+                toggleDeleteMenuModal={toggleDeleteMenuModal}
               />
               <Button
                 variant="outlined"
