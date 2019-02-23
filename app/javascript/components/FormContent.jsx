@@ -19,17 +19,19 @@ const styles = theme => ({
 
 class FormContent extends React.Component {
   handleClickCreate = () => {
-    const { menuForm, menuId } = this.props;
+    const { menuForm } = this.props;
     const { title, content } = menuForm;
     axios.post('menus/create', {
       title,
       content,
     })
-      .then(() => {
+      .then((response) => {
         const { modalHandleClose } = this.props;
         const { addMenu } = this.props;
+        const { userId } = this.props;
+        const { menuId } = response.data.id;
         modalHandleClose();
-        addMenu(menuId, title, content);
+        addMenu(menuId, title, content, userId);
         // location.reload();
       });
     // .then((error) => {
@@ -82,7 +84,9 @@ class FormContent extends React.Component {
   }
 
   render() {
-    const { classes, action, disabled } = this.props;
+    const {
+      classes, action, disabled,
+    } = this.props;
     const { menuForm } = this.props;
     const { changeTitle, changeContent } = this.props;
     const handleClickAction = `handleClick${action}`;
@@ -128,7 +132,7 @@ FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
-  // userId: PropTypes.number.isRequired,
+  userId: PropTypes.number.isRequired,
   menuId: PropTypes.number.isRequired,
   menuForm: PropTypes.object.isRequired,
   addMenu: PropTypes.func.isRequired,

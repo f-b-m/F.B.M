@@ -20,8 +20,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   getAllMenus: menus => dispatch(getAllMenus(menus)),
-  addMenu: (menuId, title, content) => {
-    dispatch(addMenu(menuId, title, content));
+  addMenu: (menuId, title, content, userId) => {
+    dispatch(addMenu(menuId, title, content, userId));
   },
   editMenu: (menuId, title, content) => {
     dispatch(editMenu(menuId, title, content));

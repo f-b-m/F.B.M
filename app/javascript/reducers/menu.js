@@ -12,6 +12,7 @@ const menus = (state = [], action) => {
           menuId: action.menuId,
           title: action.title,
           content: action.content,
+          userId: action.userId,
         },
       ];
 

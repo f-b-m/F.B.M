@@ -44,6 +44,7 @@ function TooltipsAddButton(props) {
     addMenu, editMenu, deleteMenu, toggleCreateMenuModal,
     changeTitle, changeContent,
   } = props;
+  console.log(isOpenCreateMenuModal);
 
   return (
     <div>
@@ -84,7 +85,7 @@ function TooltipsAddButton(props) {
 
 TooltipsAddButton.propTypes = {
   classes: PropTypes.object.isRequired,
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.object.isRequired,
   menuForm: PropTypes.object.isRequired,
   isOpenCreateMenuModal: PropTypes.bool.isRequired,
   addMenu: PropTypes.func.isRequired,
