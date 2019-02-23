@@ -21,11 +21,10 @@ class FormContent extends React.Component {
   handleClickCreate = () => {
     const { menuForm } = this.props;
     const { title, content } = menuForm;
-    axios.post('menus/create',
-      {
-        title,
-        content,
-      })
+    axios.post('menus/create', {
+      title,
+      content,
+    })
       .then(() => {
         const { modalHandleClose } = this.props;
         const { addMenu } = this.props;
