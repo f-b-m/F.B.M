@@ -39,7 +39,7 @@ const styles = theme => ({
 
 function TooltipsAddButton(props) {
   const { classes } = props;
-  const { userId, isOpenCreateMenuModal } = props;
+  const { userId, menuId, isOpenCreateMenuModal } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleCreateMenuModal,
   } = props;
@@ -65,6 +65,7 @@ function TooltipsAddButton(props) {
           <FormContent
             action="Create"
             userId={userId}
+            menuId={menuId}
             addMenu={addMenu}
             editMenu={editMenu}
             deleteMenu={deleteMenu}
@@ -79,6 +80,7 @@ function TooltipsAddButton(props) {
 TooltipsAddButton.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
+  menuId: PropTypes.number.isRequired,
   isOpenCreateMenuModal: PropTypes.bool.isRequired,
   addMenu: PropTypes.func.isRequired,
   editMenu: PropTypes.func.isRequired,
