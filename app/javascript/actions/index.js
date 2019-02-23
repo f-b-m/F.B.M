@@ -22,6 +22,11 @@ export const menuActionType = {
   delete: 'DELETE_MENU',
 };
 
+export const menuFormType = {
+  changeTitle: 'CHANGE_TITLE',
+  changeContent: 'CHANGE_CONTENT',
+};
+
 export const modalActionType = {
   toggleLogInModal: 'TOGGLE_LOG_IN_MODAL',
   toggleSignUpModal: 'TOGGLE_SIGN_UP_MODAL',

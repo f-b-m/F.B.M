@@ -18,20 +18,6 @@ const styles = theme => ({
 });
 
 class FormContent extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      title: '',
-      content: '',
-    };
-  }
-
-  handleChange = name => (event) => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
-
   handleClickCreate = () => {
     const { title, content } = this.state;
     axios.post('menus/create',

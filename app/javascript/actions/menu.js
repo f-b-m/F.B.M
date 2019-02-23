@@ -23,3 +23,13 @@ export const deleteMenu = menuId => ({
   type: menuActionType.delete,
   menuId,
 });
+
+export const changeTitle = text => ({
+  type: menuActionType.changeTitle,
+  text,
+});
+
+export const changeContent = text => ({
+  type: menuActionType.changeContent,
+  text,
+});
