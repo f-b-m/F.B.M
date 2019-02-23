@@ -22,7 +22,7 @@ export const menuActionType = {
   delete: 'DELETE_MENU',
 };
 
-export const menuFormType = {
+export const menuFormActionType = {
   changeTitle: 'CHANGE_TITLE',
   changeContent: 'CHANGE_CONTENT',
 };

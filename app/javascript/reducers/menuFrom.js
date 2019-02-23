@@ -1,13 +1,13 @@
-import { menuFormType } from '../actions';
+import { menuFormActionType } from '../actions';
 
 const menuForm = (state = { title: '', content: '' }, action) => {
   switch (action.type) {
-    case menuFormType.changeTitle:
+    case menuFormActionType.changeTitle:
       return Object.assign({}, state, {
         password: action.text,
       });
 
-    case menuFormType.changeContent:
+    case menuFormActionType.changeContent:
       return Object.assign({}, state, {
         password: action.text,
       });

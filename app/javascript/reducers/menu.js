@@ -23,16 +23,6 @@ const menus = (state = [], action) => {
     case menuActionType.delete:
       return state;
 
-    case menuActionType.changeTitle:
-      return Object.assign({}, state, {
-        changetitl: action.text,
-      });
-
-    case authActionTypes.changePassword:
-      return Object.assign({}, state, {
-        password: action.text,
-      });
-
     default:
       return state;
   }
