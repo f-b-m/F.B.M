@@ -39,16 +39,16 @@ const styles = theme => ({
 
 function TooltipsAddButton(props) {
   const { classes } = props;
-  const { userId, isOpenMenuModal } = props;
+  const { userId, isOpenCreateMenuModal } = props;
   const {
-    addMenu, editMenu, deleteMenu, toggleMenuModal,
+    addMenu, editMenu, deleteMenu, toggleCreateMenuModal,
   } = props;
 
   return (
     <div>
       <Tooltip title="Create" aria-label="Create">
         <Fab
-          onClick={toggleMenuModal}
+          onClick={toggleCreateMenuModal}
           color="secondary"
           className={classes.absolute}
         >
@@ -58,8 +58,8 @@ function TooltipsAddButton(props) {
       <Modal
         aria-labelledby="menu-modal-title"
         aria-describedby="menu-modal-description"
-        open={isOpenMenuModal}
-        onClose={toggleMenuModal}
+        open={isOpenCreateMenuModal}
+        onClose={toggleCreateMenuModal}
       >
         <div style={getModalStyle()} className={classes.paper}>
           <FormContent
@@ -68,7 +68,7 @@ function TooltipsAddButton(props) {
             addMenu={addMenu}
             editMenu={editMenu}
             deleteMenu={deleteMenu}
-            modalHandleClose={toggleMenuModal}
+            modalHandleClose={toggleCreateMenuModal}
           />
         </div>
       </Modal>
@@ -79,11 +79,11 @@ function TooltipsAddButton(props) {
 TooltipsAddButton.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
-  isOpenMenuModal: PropTypes.bool.isRequired,
+  isOpenCreateMenuModal: PropTypes.bool.isRequired,
   addMenu: PropTypes.func.isRequired,
   editMenu: PropTypes.func.isRequired,
   deleteMenu: PropTypes.func.isRequired,
-  toggleMenuModal: PropTypes.func.isRequired,
+  toggleCreateMenuModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TooltipsAddButton);
