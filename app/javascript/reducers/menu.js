@@ -15,13 +15,18 @@ const menus = (state = [], action) => {
         },
       ];
 
-    // TODO: implement logic
     case menuActionType.edit:
-      return state;
+      return [...state.map(menu => (menu.id === action.menuId ? {
+        menuId: action.menuId,
+        title: action.title,
+        content: action.content,
+      }
+        : menu))];
 
-    // TODO: implement logic
     case menuActionType.delete:
-      return state;
+      console.log(action.menuId);
+      return [...state.map(menu => (
+        menu.id === action.menuId ? false : menu))].filter(Boolean);
 
     default:
       return state;

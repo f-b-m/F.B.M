@@ -29,6 +29,7 @@ class CenteredGrid extends React.Component {
       .then((response) => {
         const menus = response.data;
         getAllMenus(menus);
+        console.log(menus);
       });
     // .then((error) => {
     //   console.log(error);

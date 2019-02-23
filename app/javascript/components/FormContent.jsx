@@ -38,8 +38,8 @@ class FormContent extends React.Component {
   }
 
   handleClickEdit = () => {
-    const { menuForm } = this.props;
-    const { menuId, title, content } = menuForm;
+    const { menuForm, menuId } = this.props;
+    const { title, content } = menuForm;
     axios({
       method: 'patch',
       url: '/menus/update',
@@ -53,7 +53,7 @@ class FormContent extends React.Component {
         const { modalHandleClose } = this.props;
         const { editMenu } = this.props;
         modalHandleClose();
-        editMenu();
+        editMenu(menuId, title, content);
         // location.reload();
       });
     // .then((error) => {
@@ -73,7 +73,7 @@ class FormContent extends React.Component {
         const { modalHandleClose } = this.props;
         const { deleteMenu } = this.props;
         modalHandleClose();
-        deleteMenu();
+        deleteMenu(menuId);
         // location.reload();
       });
     // .then((error) => {
