@@ -67,7 +67,7 @@ class TooltipsEditButton extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action="Edit" menuId={menuId} modalHandleClose={this.handleClose} />
+            <FormContent action="Edit" disabled={false} menuId={menuId} modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>

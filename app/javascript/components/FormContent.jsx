@@ -90,7 +90,7 @@ class FormContent extends React.Component {
   }
 
   render() {
-    const { classes, action } = this.props;
+    const { classes, action, disabled } = this.props;
     const { title, content } = this.state;
     const handleClickAction = `handleClick${action}`;
 
@@ -104,6 +104,7 @@ class FormContent extends React.Component {
             className={classes.textField}
             onChange={this.handleChange('title')}
             fullWidth
+            disabled={disabled}
             value={title}
             margin="normal"
             variant="filled"
@@ -115,6 +116,7 @@ class FormContent extends React.Component {
             className={classes.textField}
             onChange={this.handleChange('content')}
             fullWidth
+            disabled={disabled}
             multiline
             value={content}
             margin="normal"
@@ -133,6 +135,7 @@ FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
   menuId: PropTypes.number.isRequired,
   action: PropTypes.string.isRequired,
+  disabled: PropTypes.bool.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
 };
 

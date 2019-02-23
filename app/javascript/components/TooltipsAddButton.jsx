@@ -72,7 +72,7 @@ class TooltipsAddButton extends React.Component {
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-            <FormContent action="Create" modalHandleClose={this.handleClose} />
+            <FormContent action="Create" disabled={false} modalHandleClose={this.handleClose} />
           </div>
         </Modal>
       </div>
