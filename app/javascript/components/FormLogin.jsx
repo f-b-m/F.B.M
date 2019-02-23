@@ -20,32 +20,20 @@ const styles = theme => ({
 });
 
 class FormLogin extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
-
-  handleChange = name => (event) => {
-    this.setState({
-      [name]: event.target.value,
-    });
-  };
-
   handleSubmit = () => (event) => {
     event.preventDefault();
 
     const { modalHandleClose, toBeLogIn } = this.props;
-    const { email, password } = this.state;
+    const { userInfo } = this.props;
+    const { email, password } = userInfo;
+    const { setUserId } = this.props;
 
     sessionApi.login({ email, password })
       .then((response) => {
-        console.log(response);
+        console.log(response.data.result.user.id);
         toBeLogIn();
         modalHandleClose();
+        setUserId(response.data.result.user.id);
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +42,8 @@ class FormLogin extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { email, password } = this.state;
+    const { userInfo } = this.props;
+    const { changeCredential } = this.props;
 
     return (
       <form className={classes.container} noValidate autoComplete="off">
@@ -62,11 +51,11 @@ class FormLogin extends React.Component {
           id="filled-email-input"
           label="Email"
           className={classes.textField}
-          onChange={this.handleChange('email')}
+          onChange={e => changeCredential.changeEmail(e.target.value)}
           fullWidth
           type="email"
           name="email"
-          value={email}
+          value={userInfo.email}
           autoComplete="email"
           margin="normal"
           variant="filled"
@@ -76,9 +65,9 @@ class FormLogin extends React.Component {
           id="filled-password-input"
           label="Password"
           className={classes.textField}
-          onChange={this.handleChange('password')}
+          onChange={e => changeCredential.changePassword(e.target.value)}
           fullWidth
-          value={password}
+          value={userInfo.password}
           type="password"
           autoComplete="current-password"
           margin="normal"
@@ -102,6 +91,9 @@ FormLogin.propTypes = {
   classes: PropTypes.object.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
   toBeLogIn: PropTypes.func.isRequired,
+  userInfo: PropTypes.object.isRequired,
+  changeCredential: PropTypes.object.isRequired,
+  setUserId: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(FormLogin);

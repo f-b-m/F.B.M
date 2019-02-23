@@ -1,26 +1,18 @@
 /* eslint no-console:0 */
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Header from '../components/Header'
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import rootReducer from '../reducers';
 import Body from '../components/Body'
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Header />,
-    document.querySelector('#header')
-  )
-});
+const store = createStore(rootReducer);
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <Body />,
+    <Provider store={store}>
+      <Body />
+    </Provider>,
     document.querySelector('#app')
   )
 });
-
-// document.addEventListener('DOMContentLoaded', () => {
-//   ReactDOM.render(
-//     <div>Yu Fujiki & Taku SHimomura</div>,
-//     document.querySelector('#footer')
-//   )
-// });

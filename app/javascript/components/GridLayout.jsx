@@ -23,20 +23,12 @@ const styles = theme => ({
 });
 
 class CenteredGrid extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      menus: [],
-    };
-  }
-
   componentWillMount() {
+    const { getAllMenus } = this.props;
     axios.get('menus/index')
       .then((response) => {
         const menus = response.data;
-        this.setState({
-          menus,
-        });
+        getAllMenus(menus);
       });
     // .then((error) => {
     //   console.log(error);
@@ -45,7 +37,10 @@ class CenteredGrid extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { menus } = this.state;
+    const { userId, isOpenMenuModal, menus } = this.props;
+    const {
+      addMenu, editMenu, deleteMenu, toggleMenuModal,
+    } = this.props;
 
     return (
       <div className={classes.root}>
@@ -55,8 +50,24 @@ class CenteredGrid extends React.Component {
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
-              <TooltipsEditButton menuId={elm.id} userId={1} />
-              <TooltipsDeleteButton menuId={elm.id} />
+              <TooltipsEditButton
+                menuId={elm.id}
+                userId={userId}
+                isOpenMenuModal={isOpenMenuModal}
+                addMenu={addMenu}
+                editMenu={editMenu}
+                deleteMenu={deleteMenu}
+                toggleMenuModal={toggleMenuModal}
+              />
+              <TooltipsDeleteButton
+                menuId={elm.id}
+                userId={userId}
+                isOpenMenuModal={isOpenMenuModal}
+                addMenu={addMenu}
+                editMenu={editMenu}
+                deleteMenu={deleteMenu}
+                toggleMenuModal={toggleMenuModal}
+              />
               <Button
                 variant="outlined"
                 className={classes.button}
@@ -75,6 +86,14 @@ class CenteredGrid extends React.Component {
 
 CenteredGrid.propTypes = {
   classes: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
+  menus: PropTypes.array.isRequired,
+  isOpenMenuModal: PropTypes.bool.isRequired,
+  getAllMenus: PropTypes.func.isRequired,
+  addMenu: PropTypes.func.isRequired,
+  editMenu: PropTypes.func.isRequired,
+  deleteMenu: PropTypes.func.isRequired,
+  toggleMenuModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CenteredGrid);
