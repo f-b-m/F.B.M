@@ -38,10 +38,11 @@ class CenteredGrid extends React.Component {
   render() {
     const { classes } = this.props;
     const {
-      userId, isOpenEditMenuModal, isOpenDeleteMenuModal, menus,
+      userId, isOpenEditMenuModal, isOpenDeleteMenuModal, menus, menuForm,
     } = this.props;
     const {
       addMenu, editMenu, deleteMenu,
+      changeTitle, changeContent,
       toggleEditMenuModal, toggleDeleteMenuModal,
     } = this.props;
 
@@ -56,19 +57,25 @@ class CenteredGrid extends React.Component {
               <TooltipsEditButton
                 menuId={elm.id}
                 userId={userId}
+                menuForm={menuForm}
                 isOpenMenuModal={isOpenEditMenuModal}
                 addMenu={addMenu}
                 editMenu={editMenu}
                 deleteMenu={deleteMenu}
+                changeTitle={changeTitle}
+                changeContent={changeContent}
                 toggleMenuModal={toggleEditMenuModal}
               />
               <TooltipsDeleteButton
                 menuId={elm.id}
                 userId={userId}
+                menuForm={menuForm}
                 isOpenMenuModal={isOpenDeleteMenuModal}
                 addMenu={addMenu}
                 editMenu={editMenu}
                 deleteMenu={deleteMenu}
+                changeTitle={changeTitle}
+                changeContent={changeContent}
                 toggleMenuModal={toggleDeleteMenuModal}
               />
               <Button
@@ -91,12 +98,15 @@ CenteredGrid.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
   menus: PropTypes.array.isRequired,
+  menuForm: PropTypes.object.isRequired,
   isOpenEditMenuModal: PropTypes.bool.isRequired,
   isOpenDeleteMenuModal: PropTypes.bool.isRequired,
   getAllMenus: PropTypes.func.isRequired,
   addMenu: PropTypes.func.isRequired,
   editMenu: PropTypes.func.isRequired,
   deleteMenu: PropTypes.func.isRequired,
+  changeTitle: PropTypes.func.isRequired,
+  changeContent: PropTypes.func.isRequired,
   toggleEditMenuModal: PropTypes.func.isRequired,
   toggleDeleteMenuModal: PropTypes.func.isRequired,
 };
