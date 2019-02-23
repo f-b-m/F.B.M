@@ -19,7 +19,7 @@ const styles = theme => ({
 
 class FormContent extends React.Component {
   handleClickCreate = () => {
-    const { menuForm } = this.props;
+    const { menuForm, menuId } = this.props;
     const { title, content } = menuForm;
     axios.post('menus/create', {
       title,
@@ -29,7 +29,7 @@ class FormContent extends React.Component {
         const { modalHandleClose } = this.props;
         const { addMenu } = this.props;
         modalHandleClose();
-        addMenu();
+        addMenu(menuId, title, content);
         // location.reload();
       });
     // .then((error) => {
