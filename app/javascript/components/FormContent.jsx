@@ -21,7 +21,6 @@ class FormContent extends React.Component {
   handleClickEdit = () => {
     const { menuForm, menuId } = this.props;
     const { title, content } = menuForm;
-    console.log(menuForm);
     axios({
       method: 'patch',
       url: '/menus/update',
@@ -38,9 +37,6 @@ class FormContent extends React.Component {
         editMenu(menuId, title, content);
         clearTitle();
         clearContent();
-        console.log(clearContent);
-        console.log('clear!!!!');
-        console.log(menuForm);
         modalHandleClose();
         // location.reload();
       });
