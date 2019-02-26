@@ -35,7 +35,7 @@ const styles = theme => ({
 function TooltipsDeleteButton(props) {
   const { classes } = props;
   const {
-    userId, menuId, isOpenDeleteMenuModal, menuForm,
+    userId, menuId, isOpenDeleteMenuModal, menuForm, title, content,
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleDeleteMenuModal,
@@ -71,6 +71,8 @@ function TooltipsDeleteButton(props) {
             changeTitle={changeTitle}
             changeContent={changeContent}
             modalHandleClose={toggleDeleteMenuModal}
+            title={title}
+            content={content}
           />
         </div>
       </Modal>
@@ -90,6 +92,8 @@ TooltipsDeleteButton.propTypes = {
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   toggleDeleteMenuModal: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(TooltipsDeleteButton);

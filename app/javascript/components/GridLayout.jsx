@@ -29,7 +29,6 @@ class CenteredGrid extends React.Component {
       .then((response) => {
         const menus = response.data;
         getAllMenus(menus);
-        console.log(menus);
       });
     // .then((error) => {
     //   console.log(error);
@@ -66,6 +65,8 @@ class CenteredGrid extends React.Component {
                 changeTitle={changeTitle}
                 changeContent={changeContent}
                 toggleEditMenuModal={toggleEditMenuModal}
+                title={elm.title}
+                content={elm.content}
               />
               <TooltipsDeleteButton
                 menuId={elm.id}
@@ -78,6 +79,8 @@ class CenteredGrid extends React.Component {
                 changeTitle={changeTitle}
                 changeContent={changeContent}
                 toggleDeleteMenuModal={toggleDeleteMenuModal}
+                title={elm.title}
+                content={elm.content}
               />
               <Button
                 variant="outlined"

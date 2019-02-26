@@ -6,26 +6,26 @@ const menus = (state = [], action) => {
       return action.menus;
 
     case menuActionType.add:
+
       return [
         ...state,
         {
-          menuId: action.menuId,
+          id: action.menuId,
           title: action.title,
           content: action.content,
-          userId: action.userId,
+          user_id: action.userId,
         },
       ];
 
     case menuActionType.edit:
       return [...state.map(menu => (menu.id === action.menuId ? {
-        menuId: action.menuId,
+        id: action.menuId,
         title: action.title,
         content: action.content,
       }
         : menu))];
 
     case menuActionType.delete:
-      console.log(action.menuId);
       return [...state.map(menu => (
         menu.id === action.menuId ? false : menu))].filter(Boolean);
 

@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
-import FormContent from './FormContent';
+import CreateContent from './CreateContent';
 
 function getModalStyle() {
   const top = 50;
@@ -41,10 +41,9 @@ function TooltipsAddButton(props) {
   const { classes } = props;
   const { userId, isOpenCreateMenuModal, menuForm } = props;
   const {
-    addMenu, editMenu, deleteMenu, toggleCreateMenuModal,
+    addMenu, toggleCreateMenuModal,
     changeTitle, changeContent,
   } = props;
-  console.log(isOpenCreateMenuModal);
 
   return (
     <div>
@@ -64,15 +63,13 @@ function TooltipsAddButton(props) {
         onClose={toggleCreateMenuModal}
       >
         <div style={getModalStyle()} className={classes.paper}>
-          <FormContent
+          <CreateContent
             action="Create"
             disabled={false}
             userId={userId}
             menuId={-1}
             menuForm={menuForm}
             addMenu={addMenu}
-            editMenu={editMenu}
-            deleteMenu={deleteMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
             modalHandleClose={toggleCreateMenuModal}
@@ -89,8 +86,6 @@ TooltipsAddButton.propTypes = {
   menuForm: PropTypes.object.isRequired,
   isOpenCreateMenuModal: PropTypes.bool.isRequired,
   addMenu: PropTypes.func.isRequired,
-  editMenu: PropTypes.func.isRequired,
-  deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   toggleCreateMenuModal: PropTypes.func.isRequired,

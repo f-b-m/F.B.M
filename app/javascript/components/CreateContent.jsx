@@ -17,7 +17,7 @@ const styles = theme => ({
   },
 });
 
-class FormContent extends React.Component {
+class CreateContent extends React.Component {
   handleClickCreate = () => {
     const { menuForm } = this.props;
     const { title, content } = menuForm;
@@ -38,53 +38,9 @@ class FormContent extends React.Component {
     // })
   }
 
-  handleClickEdit = () => {
-    const { menuForm, menuId } = this.props;
-    const { title, content } = menuForm;
-    axios({
-      method: 'patch',
-      url: '/menus/update',
-      data: {
-        title,
-        content,
-        id: menuId,
-      },
-    })
-      .then(() => {
-        const { modalHandleClose } = this.props;
-        const { editMenu } = this.props;
-        modalHandleClose();
-        editMenu(menuId, title, content);
-        // location.reload();
-      });
-    // .then((error) => {
-    //   console.log(error);
-    // })
-  }
-
-  handleClickDelete = () => {
-    const { menuId } = this.props;
-    axios.delete('menus/delete',
-      {
-        data: {
-          id: menuId,
-        },
-      })
-      .then(() => {
-        const { modalHandleClose } = this.props;
-        const { deleteMenu } = this.props;
-        modalHandleClose();
-        deleteMenu(menuId);
-        // location.reload();
-      });
-    // .then((error) => {
-    //   console.log(error);
-    // })
-  }
-
   render() {
     const {
-      classes, action, disabled, title, content,
+      classes, action, disabled,
     } = this.props;
     const { menuForm } = this.props;
     const { changeTitle, changeContent } = this.props;
@@ -102,7 +58,7 @@ class FormContent extends React.Component {
             fullWidth
             disabled={disabled}
             value={menuForm.title}
-            defaultValue={title}
+            defaultValue="default"
             margin="normal"
             variant="filled"
           />
@@ -116,7 +72,7 @@ class FormContent extends React.Component {
             disabled={disabled}
             multiline
             value={menuForm.content}
-            defaultValue={content}
+            defaultValue="default"
             margin="normal"
             variant="filled"
           />
@@ -129,21 +85,16 @@ class FormContent extends React.Component {
   }
 }
 
-FormContent.propTypes = {
+CreateContent.propTypes = {
   classes: PropTypes.object.isRequired,
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
   userId: PropTypes.number.isRequired,
-  menuId: PropTypes.number.isRequired,
   menuForm: PropTypes.object.isRequired,
   addMenu: PropTypes.func.isRequired,
-  editMenu: PropTypes.func.isRequired,
-  deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(FormContent);
+export default withStyles(styles)(CreateContent);

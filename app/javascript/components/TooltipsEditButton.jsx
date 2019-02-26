@@ -35,7 +35,7 @@ const styles = theme => ({
 function TooltipsEditButton(props) {
   const { classes } = props;
   const {
-    userId, menuId, isOpenEditMenuModal, menuForm,
+    userId, menuId, isOpenEditMenuModal, menuForm, title, content,
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleEditMenuModal,
@@ -72,6 +72,8 @@ function TooltipsEditButton(props) {
             changeTitle={changeTitle}
             changeContent={changeContent}
             modalHandleClose={toggleEditMenuModal}
+            title={title}
+            content={content}
           />
         </div>
       </Modal>
@@ -91,6 +93,8 @@ TooltipsEditButton.propTypes = {
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   toggleEditMenuModal: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(TooltipsEditButton);
