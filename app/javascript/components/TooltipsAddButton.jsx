@@ -42,7 +42,7 @@ function TooltipsAddButton(props) {
   const { userId, isOpenCreateMenuModal, menuForm } = props;
   const {
     addMenu, toggleCreateMenuModal,
-    changeTitle, changeContent,
+    changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
   return (
@@ -72,6 +72,8 @@ function TooltipsAddButton(props) {
             addMenu={addMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
+            clearTitle={clearTitle}
+            clearContent={clearContent}
             modalHandleClose={toggleCreateMenuModal}
           />
         </div>
@@ -88,6 +90,8 @@ TooltipsAddButton.propTypes = {
   addMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleCreateMenuModal: PropTypes.func.isRequired,
 };
 

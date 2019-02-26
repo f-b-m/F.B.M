@@ -43,6 +43,7 @@ class CenteredGrid extends React.Component {
     const {
       addMenu, editMenu, deleteMenu,
       changeTitle, changeContent,
+      clearTitle, clearContent,
       toggleEditMenuModal, toggleDeleteMenuModal,
     } = this.props;
 
@@ -64,6 +65,8 @@ class CenteredGrid extends React.Component {
                 deleteMenu={deleteMenu}
                 changeTitle={changeTitle}
                 changeContent={changeContent}
+                clearTitle={clearTitle}
+                clearContent={clearContent}
                 toggleEditMenuModal={toggleEditMenuModal}
                 title={elm.title}
                 content={elm.content}
@@ -78,6 +81,8 @@ class CenteredGrid extends React.Component {
                 deleteMenu={deleteMenu}
                 changeTitle={changeTitle}
                 changeContent={changeContent}
+                clearTitle={clearTitle}
+                clearContent={clearContent}
                 toggleDeleteMenuModal={toggleDeleteMenuModal}
                 title={elm.title}
                 content={elm.content}
@@ -111,6 +116,8 @@ CenteredGrid.propTypes = {
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleEditMenuModal: PropTypes.func.isRequired,
   toggleDeleteMenuModal: PropTypes.func.isRequired,
 };

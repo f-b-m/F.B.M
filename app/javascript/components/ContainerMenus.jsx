@@ -7,7 +7,9 @@ import {
 import {
   getAllMenus, addMenu, editMenu, deleteMenu,
 } from '../actions/menu';
-import { changeTitle, changeContent } from '../actions/menuForm';
+import {
+  changeTitle, changeContent, clearTitle, clearContent,
+} from '../actions/menuForm';
 
 const mapStateToProps = state => ({
   userId: state.auths.userId,
@@ -28,6 +30,8 @@ const mapDispatchToProps = dispatch => ({
   },
   changeTitle: text => dispatch(changeTitle(text)),
   changeContent: text => dispatch(changeContent(text)),
+  clearTitle: () => dispatch(clearTitle()),
+  clearContent: () => dispatch(clearContent()),
   deleteMenu: menuId => dispatch(deleteMenu(menuId)),
   toggleCreateMenuModal: () => dispatch(toggleCreateMenuModal()),
   toggleEditMenuModal: () => dispatch(toggleEditMenuModal()),

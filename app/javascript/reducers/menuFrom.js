@@ -14,7 +14,7 @@ const menuForm = (state = { title: '', content: '' }, action) => {
 
     case menuFormActionType.clearTitle:
       return Object.assign({}, state, {
-        content: '',
+        title: '',
       });
 
     case menuFormActionType.clearContent:

@@ -39,7 +39,7 @@ function TooltipsEditButton(props) {
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleEditMenuModal,
-    changeTitle, changeContent,
+    changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
   return (
@@ -71,6 +71,8 @@ function TooltipsEditButton(props) {
             deleteMenu={deleteMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
+            clearTitle={clearTitle}
+            clearContent={clearContent}
             modalHandleClose={toggleEditMenuModal}
             title={title}
             content={content}
@@ -92,6 +94,8 @@ TooltipsEditButton.propTypes = {
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleEditMenuModal: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

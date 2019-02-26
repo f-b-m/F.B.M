@@ -39,7 +39,7 @@ function TooltipsDeleteButton(props) {
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleDeleteMenuModal,
-    changeTitle, changeContent,
+    changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
   return (
@@ -70,6 +70,8 @@ function TooltipsDeleteButton(props) {
             deleteMenu={deleteMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
+            clearTitle={clearTitle}
+            clearContent={clearContent}
             modalHandleClose={toggleDeleteMenuModal}
             title={title}
             content={content}
@@ -91,6 +93,8 @@ TooltipsDeleteButton.propTypes = {
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleDeleteMenuModal: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

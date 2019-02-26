@@ -18,29 +18,10 @@ const styles = theme => ({
 });
 
 class FormContent extends React.Component {
-  handleClickCreate = () => {
-    const { menuForm } = this.props;
-    const { title, content } = menuForm;
-    axios.post('menus/create', {
-      title,
-      content,
-    })
-      .then((response) => {
-        const { modalHandleClose } = this.props;
-        const { addMenu } = this.props;
-        const { userId } = this.props;
-        modalHandleClose();
-        addMenu(response.data.id, title, content, userId);
-        // location.reload();
-      });
-    // .then((error) => {
-    //   console.log(error);
-    // })
-  }
-
   handleClickEdit = () => {
     const { menuForm, menuId } = this.props;
     const { title, content } = menuForm;
+    console.log(menuForm);
     axios({
       method: 'patch',
       url: '/menus/update',
@@ -53,8 +34,14 @@ class FormContent extends React.Component {
       .then(() => {
         const { modalHandleClose } = this.props;
         const { editMenu } = this.props;
-        modalHandleClose();
+        const { clearTitle, clearContent } = this.props;
         editMenu(menuId, title, content);
+        clearTitle();
+        clearContent();
+        console.log(clearContent);
+        console.log('clear!!!!');
+        console.log(menuForm);
+        modalHandleClose();
         // location.reload();
       });
     // .then((error) => {
@@ -73,8 +60,11 @@ class FormContent extends React.Component {
       .then(() => {
         const { modalHandleClose } = this.props;
         const { deleteMenu } = this.props;
-        modalHandleClose();
+        const { clearTitle, clearContent } = this.props;
         deleteMenu(menuId);
+        clearTitle();
+        clearContent();
+        modalHandleClose();
         // location.reload();
       });
     // .then((error) => {
@@ -133,14 +123,14 @@ FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
-  userId: PropTypes.number.isRequired,
   menuId: PropTypes.number.isRequired,
   menuForm: PropTypes.object.isRequired,
-  addMenu: PropTypes.func.isRequired,
   editMenu: PropTypes.func.isRequired,
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,

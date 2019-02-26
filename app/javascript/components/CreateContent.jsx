@@ -27,9 +27,12 @@ class CreateContent extends React.Component {
     })
       .then((response) => {
         const { modalHandleClose } = this.props;
+        const { clearTitle, clearContent } = this.props;
         const { addMenu } = this.props;
         const { userId } = this.props;
         modalHandleClose();
+        clearTitle();
+        clearContent();
         addMenu(response.data.id, title, content, userId);
         // location.reload();
       });
@@ -58,7 +61,7 @@ class CreateContent extends React.Component {
             fullWidth
             disabled={disabled}
             value={menuForm.title}
-            defaultValue="default"
+            defaultValue=""
             margin="normal"
             variant="filled"
           />
@@ -72,7 +75,7 @@ class CreateContent extends React.Component {
             disabled={disabled}
             multiline
             value={menuForm.content}
-            defaultValue="default"
+            defaultValue=""
             margin="normal"
             variant="filled"
           />
@@ -94,6 +97,8 @@ CreateContent.propTypes = {
   addMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
 };
 
