@@ -11,9 +11,9 @@ export const changeContent = text => ({
 });
 
 export const clearTitle = () => ({
-  type: menuFormActionType.changeTitle,
+  type: menuFormActionType.clearTitle,
 });
 
 export const clearContent = () => ({
-  type: menuFormActionType.changeContent,
+  type: menuFormActionType.clearContent,
 });
