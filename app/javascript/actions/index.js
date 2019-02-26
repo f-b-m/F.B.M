@@ -25,6 +25,8 @@ export const menuActionType = {
 export const menuFormActionType = {
   changeTitle: 'CHANGE_TITLE',
   changeContent: 'CHANGE_CONTENT',
+  clearTitle: 'CLEAR_TITLE',
+  clearContent: 'CLEAR_CONTENT',
 };
 
 export const modalActionType = {
