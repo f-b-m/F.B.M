@@ -84,7 +84,7 @@ function TooltipsAddButton(props) {
 
 TooltipsAddButton.propTypes = {
   classes: PropTypes.object.isRequired,
-  userId: PropTypes.object.isRequired,
+  userId: PropTypes.number.isRequired,
   menuForm: PropTypes.object.isRequired,
   isOpenCreateMenuModal: PropTypes.bool.isRequired,
   addMenu: PropTypes.func.isRequired,
