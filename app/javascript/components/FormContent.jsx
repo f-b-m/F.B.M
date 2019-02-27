@@ -88,7 +88,6 @@ class FormContent extends React.Component {
             fullWidth
             disabled={disabled}
             value={menuForm.title}
-            defaultValue={title}
             margin="normal"
             variant="filled"
           />
@@ -102,7 +101,6 @@ class FormContent extends React.Component {
             disabled={disabled}
             multiline
             value={menuForm.content}
-            defaultValue={content}
             margin="normal"
             variant="filled"
           />

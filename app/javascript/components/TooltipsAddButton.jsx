@@ -45,6 +45,12 @@ function TooltipsAddButton(props) {
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
+  const handleClose = () => {
+    toggleCreateMenuModal();
+    clearTitle();
+    clearContent();
+  };
+
   return (
     <div>
       <Tooltip title="Create" aria-label="Create">
@@ -60,7 +66,7 @@ function TooltipsAddButton(props) {
         aria-labelledby="create-menu-modal-title"
         aria-describedby="create-menu-modal-description"
         open={isOpenCreateMenuModal}
-        onClose={toggleCreateMenuModal}
+        onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
           <CreateContent
@@ -74,7 +80,7 @@ function TooltipsAddButton(props) {
             changeContent={changeContent}
             clearTitle={clearTitle}
             clearContent={clearContent}
-            modalHandleClose={toggleCreateMenuModal}
+            modalHandleClose={handleClose}
           />
         </div>
       </Modal>

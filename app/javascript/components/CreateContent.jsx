@@ -61,7 +61,6 @@ class CreateContent extends React.Component {
             fullWidth
             disabled={disabled}
             value={menuForm.title}
-            defaultValue=""
             margin="normal"
             variant="filled"
           />
@@ -75,7 +74,6 @@ class CreateContent extends React.Component {
             disabled={disabled}
             multiline
             value={menuForm.content}
-            defaultValue=""
             margin="normal"
             variant="filled"
           />

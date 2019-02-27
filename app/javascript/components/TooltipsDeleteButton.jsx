@@ -42,6 +42,13 @@ function TooltipsDeleteButton(props) {
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
+  const handleClose = () => {
+    toggleDeleteMenuModal();
+    clearTitle();
+    clearContent();
+  };
+
+
   return (
     <div>
       <Tooltip title="Delete" aria-label="Delete">
@@ -56,7 +63,7 @@ function TooltipsDeleteButton(props) {
         aria-labelledby="delete-menu-modal-title"
         aria-describedby="delete-menu-modal-description"
         open={isOpenDeleteMenuModal}
-        onClose={toggleDeleteMenuModal}
+        onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
           <FormContent
@@ -72,7 +79,7 @@ function TooltipsDeleteButton(props) {
             changeContent={changeContent}
             clearTitle={clearTitle}
             clearContent={clearContent}
-            modalHandleClose={toggleDeleteMenuModal}
+            modalHandleClose={handleClose}
             title={title}
             content={content}
           />

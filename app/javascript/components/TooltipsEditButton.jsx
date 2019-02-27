@@ -42,6 +42,12 @@ function TooltipsEditButton(props) {
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
+  const handleClose = () => {
+    toggleEditMenuModal();
+    clearTitle();
+    clearContent();
+  };
+
   return (
     <div>
       <Tooltip title="Edit" aria-label="Edit">
@@ -57,7 +63,7 @@ function TooltipsEditButton(props) {
         aria-labelledby="edit-menu-modal-title"
         aria-describedby="edit-menu-modal-description"
         open={isOpenEditMenuModal}
-        onClose={toggleEditMenuModal}
+        onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
           <FormContent
@@ -73,7 +79,7 @@ function TooltipsEditButton(props) {
             changeContent={changeContent}
             clearTitle={clearTitle}
             clearContent={clearContent}
-            modalHandleClose={toggleEditMenuModal}
+            modalHandleClose={handleClose}
             title={title}
             content={content}
           />
