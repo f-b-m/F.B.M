@@ -42,6 +42,12 @@ function TooltipsEditButton(props) {
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
+  const handleClick = () => {
+    toggleEditMenuModal();
+    changeTitle(title);
+    changeContent(content);
+  };
+
   const handleClose = () => {
     toggleEditMenuModal();
     clearTitle();
@@ -52,7 +58,7 @@ function TooltipsEditButton(props) {
     <div>
       <Tooltip title="Edit" aria-label="Edit">
         <Fab
-          onClick={toggleEditMenuModal}
+          onClick={handleClick}
           color="secondary"
           className={classes.absolute}
         >

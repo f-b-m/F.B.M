@@ -70,7 +70,7 @@ class FormContent extends React.Component {
 
   render() {
     const {
-      classes, action, disabled, title, content,
+      classes, action, disabled,
     } = this.props;
     const { menuForm } = this.props;
     const { changeTitle, changeContent } = this.props;
@@ -126,8 +126,6 @@ FormContent.propTypes = {
   clearTitle: PropTypes.func.isRequired,
   clearContent: PropTypes.func.isRequired,
   modalHandleClose: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(FormContent);

@@ -42,6 +42,12 @@ function TooltipsDeleteButton(props) {
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
+  const handleClick = () => {
+    toggleDeleteMenuModal();
+    changeTitle(title);
+    changeContent(content);
+  };
+
   const handleClose = () => {
     toggleDeleteMenuModal();
     clearTitle();
@@ -53,7 +59,7 @@ function TooltipsDeleteButton(props) {
     <div>
       <Tooltip title="Delete" aria-label="Delete">
         <Fab
-          onClick={toggleDeleteMenuModal}
+          onClick={handleClick}
           color="secondary"
         >
           <DeleteIcon />
