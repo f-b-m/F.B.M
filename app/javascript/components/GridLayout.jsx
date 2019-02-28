@@ -55,42 +55,44 @@ class CenteredGrid extends React.Component {
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
-              {elm.user_id === userId ?
-              <div>
-              <TooltipsEditButton
-                menuId={elm.id}
-                userId={userId}
-                menuForm={menuForm}
-                isOpenEditMenuModal={isOpenEditMenuModal}
-                addMenu={addMenu}
-                editMenu={editMenu}
-                deleteMenu={deleteMenu}
-                changeTitle={changeTitle}
-                changeContent={changeContent}
-                clearTitle={clearTitle}
-                clearContent={clearContent}
-                toggleEditMenuModal={toggleEditMenuModal}
-                title={elm.title}
-                content={elm.content}
-              />
-              <TooltipsDeleteButton
-                menuId={elm.id}
-                userId={userId}
-                menuForm={menuForm}
-                isOpenDeleteMenuModal={isOpenDeleteMenuModal}
-                addMenu={addMenu}
-                editMenu={editMenu}
-                deleteMenu={deleteMenu}
-                changeTitle={changeTitle}
-                changeContent={changeContent}
-                clearTitle={clearTitle}
-                clearContent={clearContent}
-                toggleDeleteMenuModal={toggleDeleteMenuModal}
-                title={elm.title}
-                content={elm.content}
-              />
-              </div>
-              : <div></div>
+              {elm.user_id === userId
+                ? (
+                  <div>
+                    <TooltipsEditButton
+                      menuId={elm.id}
+                      userId={userId}
+                      menuForm={menuForm}
+                      isOpenEditMenuModal={isOpenEditMenuModal}
+                      addMenu={addMenu}
+                      editMenu={editMenu}
+                      deleteMenu={deleteMenu}
+                      changeTitle={changeTitle}
+                      changeContent={changeContent}
+                      clearTitle={clearTitle}
+                      clearContent={clearContent}
+                      toggleEditMenuModal={toggleEditMenuModal}
+                      title={elm.title}
+                      content={elm.content}
+                    />
+                    <TooltipsDeleteButton
+                      menuId={elm.id}
+                      userId={userId}
+                      menuForm={menuForm}
+                      isOpenDeleteMenuModal={isOpenDeleteMenuModal}
+                      addMenu={addMenu}
+                      editMenu={editMenu}
+                      deleteMenu={deleteMenu}
+                      changeTitle={changeTitle}
+                      changeContent={changeContent}
+                      clearTitle={clearTitle}
+                      clearContent={clearContent}
+                      toggleDeleteMenuModal={toggleDeleteMenuModal}
+                      title={elm.title}
+                      content={elm.content}
+                    />
+                  </div>
+                )
+                : <div />
               }
 
               <Button
