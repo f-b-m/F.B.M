@@ -55,6 +55,8 @@ class CenteredGrid extends React.Component {
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
+              {elm.user_id === userId ?
+              <div>
               <TooltipsEditButton
                 menuId={elm.id}
                 userId={userId}
@@ -87,6 +89,10 @@ class CenteredGrid extends React.Component {
                 title={elm.title}
                 content={elm.content}
               />
+              </div>
+              : <div></div>
+              }
+
               <Button
                 variant="outlined"
                 className={classes.button}
