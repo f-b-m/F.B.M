@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  before_action :authenticate_user!, only: [:destroy, :create, :update]
+
   def menu
   end
 
@@ -11,7 +13,7 @@ class MenusController < ApplicationController
     menu = Menu.new(params.permit(:title, :content))
     menu.user_id = current_user.id
     menu.save
-    render :body => nil, :status => 200
+    render json: menu.to_json
   end
 
   def destroy

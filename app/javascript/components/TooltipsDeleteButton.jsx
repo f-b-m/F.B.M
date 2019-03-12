@@ -35,18 +35,31 @@ const styles = theme => ({
 function TooltipsDeleteButton(props) {
   const { classes } = props;
   const {
-    userId, menuId, isOpenDeleteMenuModal, menuForm,
+    userId, menuId, isOpenDeleteMenuModal, menuForm, title, content,
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleDeleteMenuModal,
-    changeTitle, changeContent,
+    changeTitle, changeContent, clearTitle, clearContent,
   } = props;
+
+  const handleClick = () => {
+    toggleDeleteMenuModal();
+    changeTitle(title);
+    changeContent(content);
+  };
+
+  const handleClose = () => {
+    toggleDeleteMenuModal();
+    clearTitle();
+    clearContent();
+  };
+
 
   return (
     <div>
       <Tooltip title="Delete" aria-label="Delete">
         <Fab
-          onClick={toggleDeleteMenuModal}
+          onClick={handleClick}
           color="secondary"
         >
           <DeleteIcon />
@@ -56,7 +69,7 @@ function TooltipsDeleteButton(props) {
         aria-labelledby="delete-menu-modal-title"
         aria-describedby="delete-menu-modal-description"
         open={isOpenDeleteMenuModal}
-        onClose={toggleDeleteMenuModal}
+        onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
           <FormContent
@@ -70,7 +83,11 @@ function TooltipsDeleteButton(props) {
             deleteMenu={deleteMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
-            modalHandleClose={toggleDeleteMenuModal}
+            clearTitle={clearTitle}
+            clearContent={clearContent}
+            modalHandleClose={handleClose}
+            title={title}
+            content={content}
           />
         </div>
       </Modal>
@@ -89,7 +106,11 @@ TooltipsDeleteButton.propTypes = {
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleDeleteMenuModal: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(TooltipsDeleteButton);

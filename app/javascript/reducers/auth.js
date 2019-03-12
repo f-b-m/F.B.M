@@ -4,7 +4,7 @@ const auths = (state = authInitialObject, action) => {
   switch (action.type) {
     case authActionTypes.setUserId:
       return Object.assign({}, state, {
-        uerId: action.userId,
+        userId: action.userId,
       });
 
     case authActionTypes.deleteUserId:

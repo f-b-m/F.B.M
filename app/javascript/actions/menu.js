@@ -5,11 +5,12 @@ export const getAllMenus = menus => ({
   menus,
 });
 
-export const addMenu = (menuId, title, content) => ({
+export const addMenu = (menuId, title, content, userId) => ({
   type: menuActionType.add,
   menuId,
   title,
   content,
+  userId,
 });
 
 export const editMenu = (menuId, title, content) => ({

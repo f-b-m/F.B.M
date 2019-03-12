@@ -35,18 +35,30 @@ const styles = theme => ({
 function TooltipsEditButton(props) {
   const { classes } = props;
   const {
-    userId, menuId, isOpenEditMenuModal, menuForm,
+    userId, menuId, isOpenEditMenuModal, menuForm, title, content,
   } = props;
   const {
     addMenu, editMenu, deleteMenu, toggleEditMenuModal,
-    changeTitle, changeContent,
+    changeTitle, changeContent, clearTitle, clearContent,
   } = props;
+
+  const handleClick = () => {
+    toggleEditMenuModal();
+    changeTitle(title);
+    changeContent(content);
+  };
+
+  const handleClose = () => {
+    toggleEditMenuModal();
+    clearTitle();
+    clearContent();
+  };
 
   return (
     <div>
       <Tooltip title="Edit" aria-label="Edit">
         <Fab
-          onClick={toggleEditMenuModal}
+          onClick={handleClick}
           color="secondary"
           className={classes.absolute}
         >
@@ -57,7 +69,7 @@ function TooltipsEditButton(props) {
         aria-labelledby="edit-menu-modal-title"
         aria-describedby="edit-menu-modal-description"
         open={isOpenEditMenuModal}
-        onClose={toggleEditMenuModal}
+        onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
           <FormContent
@@ -71,7 +83,11 @@ function TooltipsEditButton(props) {
             deleteMenu={deleteMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
-            modalHandleClose={toggleEditMenuModal}
+            clearTitle={clearTitle}
+            clearContent={clearContent}
+            modalHandleClose={handleClose}
+            title={title}
+            content={content}
           />
         </div>
       </Modal>
@@ -90,7 +106,11 @@ TooltipsEditButton.propTypes = {
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleEditMenuModal: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  content: PropTypes.string.isRequired,
 };
 
 export default withStyles(styles)(TooltipsEditButton);

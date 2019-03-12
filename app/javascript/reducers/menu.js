@@ -6,22 +6,28 @@ const menus = (state = [], action) => {
       return action.menus;
 
     case menuActionType.add:
+
       return [
         ...state,
         {
-          menuId: action.menuId,
+          id: action.menuId,
           title: action.title,
           content: action.content,
+          user_id: action.userId,
         },
       ];
 
-    // TODO: implement logic
     case menuActionType.edit:
-      return state;
+      return [...state.map(menu => (menu.id === action.menuId ? {
+        id: action.menuId,
+        title: action.title,
+        content: action.content,
+      }
+        : menu))];
 
-    // TODO: implement logic
     case menuActionType.delete:
-      return state;
+      return [...state.map(menu => (
+        menu.id === action.menuId ? false : menu))].filter(Boolean);
 
     default:
       return state;

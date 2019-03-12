@@ -44,6 +44,7 @@ class CenteredGrid extends React.Component {
     const {
       addMenu, editMenu, deleteMenu,
       changeTitle, changeContent,
+      clearTitle, clearContent,
       toggleEditMenuModal, toggleDeleteMenuModal,
     } = this.props;
 
@@ -56,30 +57,46 @@ class CenteredGrid extends React.Component {
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
-              <TooltipsEditButton
-                menuId={elm.id}
-                userId={userId}
-                menuForm={menuForm}
-                isOpenEditMenuModal={isOpenEditMenuModal}
-                addMenu={addMenu}
-                editMenu={editMenu}
-                deleteMenu={deleteMenu}
-                changeTitle={changeTitle}
-                changeContent={changeContent}
-                toggleEditMenuModal={toggleEditMenuModal}
-              />
-              <TooltipsDeleteButton
-                menuId={elm.id}
-                userId={userId}
-                menuForm={menuForm}
-                isOpenDeleteMenuModal={isOpenDeleteMenuModal}
-                addMenu={addMenu}
-                editMenu={editMenu}
-                deleteMenu={deleteMenu}
-                changeTitle={changeTitle}
-                changeContent={changeContent}
-                toggleDeleteMenuModal={toggleDeleteMenuModal}
-              />
+              {elm.user_id === userId
+                ? (
+                  <div>
+                    <TooltipsEditButton
+                      menuId={elm.id}
+                      userId={userId}
+                      menuForm={menuForm}
+                      isOpenEditMenuModal={isOpenEditMenuModal}
+                      addMenu={addMenu}
+                      editMenu={editMenu}
+                      deleteMenu={deleteMenu}
+                      changeTitle={changeTitle}
+                      changeContent={changeContent}
+                      clearTitle={clearTitle}
+                      clearContent={clearContent}
+                      toggleEditMenuModal={toggleEditMenuModal}
+                      title={elm.title}
+                      content={elm.content}
+                    />
+                    <TooltipsDeleteButton
+                      menuId={elm.id}
+                      userId={userId}
+                      menuForm={menuForm}
+                      isOpenDeleteMenuModal={isOpenDeleteMenuModal}
+                      addMenu={addMenu}
+                      editMenu={editMenu}
+                      deleteMenu={deleteMenu}
+                      changeTitle={changeTitle}
+                      changeContent={changeContent}
+                      clearTitle={clearTitle}
+                      clearContent={clearContent}
+                      toggleDeleteMenuModal={toggleDeleteMenuModal}
+                      title={elm.title}
+                      content={elm.content}
+                    />
+                  </div>
+                )
+                : <div />
+              }
+
               <Button
                 variant="outlined"
                 className={classes.button}
@@ -109,6 +126,8 @@ CenteredGrid.propTypes = {
   deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleEditMenuModal: PropTypes.func.isRequired,
   toggleDeleteMenuModal: PropTypes.func.isRequired,
 };

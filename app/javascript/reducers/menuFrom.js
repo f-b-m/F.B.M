@@ -12,6 +12,16 @@ const menuForm = (state = { title: '', content: '' }, action) => {
         content: action.text,
       });
 
+    case menuFormActionType.clearTitle:
+      return Object.assign({}, state, {
+        title: '',
+      });
+
+    case menuFormActionType.clearContent:
+      return Object.assign({}, state, {
+        content: '',
+      });
+
     default:
       return state;
   }

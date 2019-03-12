@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
-import FormContent from './FormContent';
+import CreateContent from './CreateContent';
 
 function getModalStyle() {
   const top = 50;
@@ -41,9 +41,15 @@ function TooltipsAddButton(props) {
   const { classes } = props;
   const { userId, isOpenCreateMenuModal, menuForm } = props;
   const {
-    addMenu, editMenu, deleteMenu, toggleCreateMenuModal,
-    changeTitle, changeContent,
+    addMenu, toggleCreateMenuModal,
+    changeTitle, changeContent, clearTitle, clearContent,
   } = props;
+
+  const handleClose = () => {
+    toggleCreateMenuModal();
+    clearTitle();
+    clearContent();
+  };
 
   return (
     <div>
@@ -60,21 +66,21 @@ function TooltipsAddButton(props) {
         aria-labelledby="create-menu-modal-title"
         aria-describedby="create-menu-modal-description"
         open={isOpenCreateMenuModal}
-        onClose={toggleCreateMenuModal}
+        onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
-          <FormContent
+          <CreateContent
             action="Create"
             disabled={false}
             userId={userId}
             menuId={-1}
             menuForm={menuForm}
             addMenu={addMenu}
-            editMenu={editMenu}
-            deleteMenu={deleteMenu}
             changeTitle={changeTitle}
             changeContent={changeContent}
-            modalHandleClose={toggleCreateMenuModal}
+            clearTitle={clearTitle}
+            clearContent={clearContent}
+            modalHandleClose={handleClose}
           />
         </div>
       </Modal>
@@ -88,10 +94,10 @@ TooltipsAddButton.propTypes = {
   menuForm: PropTypes.object.isRequired,
   isOpenCreateMenuModal: PropTypes.bool.isRequired,
   addMenu: PropTypes.func.isRequired,
-  editMenu: PropTypes.func.isRequired,
-  deleteMenu: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
+  clearTitle: PropTypes.func.isRequired,
+  clearContent: PropTypes.func.isRequired,
   toggleCreateMenuModal: PropTypes.func.isRequired,
 };
 
