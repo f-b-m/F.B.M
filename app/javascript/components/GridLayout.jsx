@@ -5,6 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
+import CardMenuTitle from './CardMenuTitle';
 import TooltipsEditButton from './TooltipsEditButton';
 import TooltipsDeleteButton from './TooltipsDeleteButton';
 
@@ -51,6 +52,7 @@ class CenteredGrid extends React.Component {
         <Grid container spacing={24}>
           {menus.map(elm => (
             <Grid item xs={12} key={elm.id}>
+              <CardMenuTitle />
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
