@@ -12,19 +12,19 @@ const modals = (state = modalInitialObject, action) => {
         isOpenSignUpModal: !state.isOpenSignUpModal,
       });
 
-    case modalActionType.toggleCreateMenuModal:
+    case modalActionType.toggleCreateDrillModal:
       return Object.assign({}, state, {
-        isOpenCreateMenuModal: !state.isOpenCreateMenuModal,
+        isOpenCreateDrillModal: !state.isOpenCreateDrillModal,
       });
 
-    case modalActionType.toggleEditMenuModal:
+    case modalActionType.toggleEditDrillModal:
       return Object.assign({}, state, {
-        isOpenEditMenuModal: !state.isOpenEditMenuModal,
+        isOpenEditDrillModal: !state.isOpenEditDrillModal,
       });
 
-    case modalActionType.toggleDeleteMenuModal:
+    case modalActionType.toggleDeleteDrillModal:
       return Object.assign({}, state, {
-        isOpenDeleteMenuModal: !state.isOpenDeleteMenuModal,
+        isOpenDeleteDrillModal: !state.isOpenDeleteDrillModal,
       });
 
     default:

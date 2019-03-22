@@ -19,21 +19,21 @@ const styles = theme => ({
 
 class CreateContent extends React.Component {
   handleClickCreate = () => {
-    const { menuForm } = this.props;
-    const { title, content } = menuForm;
-    axios.post('menus/create', {
+    const { drillForm } = this.props;
+    const { title, content } = drillForm;
+    axios.post('drills/create', {
       title,
       content,
     })
       .then((response) => {
         const { modalHandleClose } = this.props;
         const { clearTitle, clearContent } = this.props;
-        const { addMenu } = this.props;
+        const { addDrill } = this.props;
         const { userId } = this.props;
         modalHandleClose();
         clearTitle();
         clearContent();
-        addMenu(response.data.id, title, content, userId);
+        addDrill(response.data.id, title, content, userId);
         // location.reload();
       });
     // .then((error) => {
@@ -45,13 +45,13 @@ class CreateContent extends React.Component {
     const {
       classes, action, disabled,
     } = this.props;
-    const { menuForm } = this.props;
+    const { drillForm } = this.props;
     const { changeTitle, changeContent } = this.props;
     const handleClickAction = `handleClick${action}`;
 
     return (
       <div>
-        {`${action} Menu`}
+        {`${action} Drill`}
         <form>
           <TextField
             id="filled-title"
@@ -60,7 +60,7 @@ class CreateContent extends React.Component {
             onChange={e => changeTitle(e.target.value)}
             fullWidth
             disabled={disabled}
-            value={menuForm.title}
+            value={drillForm.title}
             margin="normal"
             variant="filled"
           />
@@ -73,7 +73,7 @@ class CreateContent extends React.Component {
             fullWidth
             disabled={disabled}
             multiline
-            value={menuForm.content}
+            value={drillForm.content}
             margin="normal"
             variant="filled"
           />
@@ -91,8 +91,8 @@ CreateContent.propTypes = {
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
   userId: PropTypes.number.isRequired,
-  menuForm: PropTypes.object.isRequired,
-  addMenu: PropTypes.func.isRequired,
+  drillForm: PropTypes.object.isRequired,
+  addDrill: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   clearTitle: PropTypes.func.isRequired,

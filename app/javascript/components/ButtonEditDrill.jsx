@@ -35,21 +35,21 @@ const styles = theme => ({
 function ButtonEditDrill(props) {
   const { classes } = props;
   const {
-    userId, menuId, isOpenEditMenuModal, menuForm, title, content,
+    userId, drillId, isOpenEditDrillModal, drillForm, title, content,
   } = props;
   const {
-    addMenu, editMenu, deleteMenu, toggleEditMenuModal,
+    addDrill, editDrill, deleteDrill, toggleEditDrillModal,
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
   const handleClick = () => {
-    toggleEditMenuModal();
+    toggleEditDrillModal();
     changeTitle(title);
     changeContent(content);
   };
 
   const handleClose = () => {
-    toggleEditMenuModal();
+    toggleEditDrillModal();
     clearTitle();
     clearContent();
   };
@@ -66,9 +66,9 @@ function ButtonEditDrill(props) {
         </Fab>
       </Tooltip>
       <Modal
-        aria-labelledby="edit-menu-modal-title"
-        aria-describedby="edit-menu-modal-description"
-        open={isOpenEditMenuModal}
+        aria-labelledby="edit-drill-modal-title"
+        aria-describedby="edit-drill-modal-description"
+        open={isOpenEditDrillModal}
         onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
@@ -76,11 +76,11 @@ function ButtonEditDrill(props) {
             action="Edit"
             disabled={false}
             userId={userId}
-            menuId={menuId}
-            menuForm={menuForm}
-            addMenu={addMenu}
-            editMenu={editMenu}
-            deleteMenu={deleteMenu}
+            drillId={drillId}
+            drillForm={drillForm}
+            addDrill={addDrill}
+            editDrill={editDrill}
+            deleteDrill={deleteDrill}
             changeTitle={changeTitle}
             changeContent={changeContent}
             clearTitle={clearTitle}
@@ -98,17 +98,17 @@ function ButtonEditDrill(props) {
 ButtonEditDrill.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
-  menuId: PropTypes.number.isRequired,
-  menuForm: PropTypes.object.isRequired,
-  isOpenEditMenuModal: PropTypes.bool.isRequired,
-  addMenu: PropTypes.func.isRequired,
-  editMenu: PropTypes.func.isRequired,
-  deleteMenu: PropTypes.func.isRequired,
+  drillId: PropTypes.number.isRequired,
+  drillForm: PropTypes.object.isRequired,
+  isOpenEditDrillModal: PropTypes.bool.isRequired,
+  addDrill: PropTypes.func.isRequired,
+  editDrill: PropTypes.func.isRequired,
+  deleteDrill: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   clearTitle: PropTypes.func.isRequired,
   clearContent: PropTypes.func.isRequired,
-  toggleEditMenuModal: PropTypes.func.isRequired,
+  toggleEditDrillModal: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
 };

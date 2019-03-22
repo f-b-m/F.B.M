@@ -39,14 +39,14 @@ const styles = theme => ({
 
 function ButtonCreateDrill(props) {
   const { classes } = props;
-  const { userId, isOpenCreateMenuModal, menuForm } = props;
+  const { userId, isOpenCreateDrillModal, drillForm } = props;
   const {
-    addMenu, toggleCreateMenuModal,
+    addDrill, toggleCreateDrillModal,
     changeTitle, changeContent, clearTitle, clearContent,
   } = props;
 
   const handleClose = () => {
-    toggleCreateMenuModal();
+    toggleCreateDrillModal();
     clearTitle();
     clearContent();
   };
@@ -55,7 +55,7 @@ function ButtonCreateDrill(props) {
     <div>
       <Tooltip title="Create" aria-label="Create">
         <Fab
-          onClick={toggleCreateMenuModal}
+          onClick={toggleCreateDrillModal}
           color="secondary"
           className={classes.absolute}
         >
@@ -63,9 +63,9 @@ function ButtonCreateDrill(props) {
         </Fab>
       </Tooltip>
       <Modal
-        aria-labelledby="create-menu-modal-title"
-        aria-describedby="create-menu-modal-description"
-        open={isOpenCreateMenuModal}
+        aria-labelledby="create-drill-modal-title"
+        aria-describedby="create-drill-modal-description"
+        open={isOpenCreateDrillModal}
         onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
@@ -73,9 +73,9 @@ function ButtonCreateDrill(props) {
             action="Create"
             disabled={false}
             userId={userId}
-            menuId={-1}
-            menuForm={menuForm}
-            addMenu={addMenu}
+            drillId={-1}
+            drillForm={drillForm}
+            addDrill={addDrill}
             changeTitle={changeTitle}
             changeContent={changeContent}
             clearTitle={clearTitle}
@@ -91,14 +91,14 @@ function ButtonCreateDrill(props) {
 ButtonCreateDrill.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
-  menuForm: PropTypes.object.isRequired,
-  isOpenCreateMenuModal: PropTypes.bool.isRequired,
-  addMenu: PropTypes.func.isRequired,
+  drillForm: PropTypes.object.isRequired,
+  isOpenCreateDrillModal: PropTypes.bool.isRequired,
+  addDrill: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   clearTitle: PropTypes.func.isRequired,
   clearContent: PropTypes.func.isRequired,
-  toggleCreateMenuModal: PropTypes.func.isRequired,
+  toggleCreateDrillModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(ButtonCreateDrill);

@@ -2,7 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from '../components/Header'
-import MenuDetail from '../components/MenuDetail'
+import DrillDetail from '../components/DrillDetail'
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(
-    <MenuDetail />,
+    <DrillDetail />,
     document.querySelector('#app')
   )
 });

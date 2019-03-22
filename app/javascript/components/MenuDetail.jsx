@@ -1,11 +1,11 @@
 import React from 'react';
 
-function MenuDetail() {
+function DrillDetail() {
   return (
     <div>
-      Hello, MenuDetail
+      Hello, DrillDetail
     </div>
   );
 }
 
-export default (MenuDetail);
+export default (DrillDetail);

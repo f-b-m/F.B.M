@@ -1,23 +1,23 @@
-import { menuFormActionType } from '../actions';
+import { drillFormActionType } from '../actions';
 
-const menuForm = (state = { title: '', content: '' }, action) => {
+const drillForm = (state = { title: '', content: '' }, action) => {
   switch (action.type) {
-    case menuFormActionType.changeTitle:
+    case drillFormActionType.changeTitle:
       return Object.assign({}, state, {
         title: action.text,
       });
 
-    case menuFormActionType.changeContent:
+    case drillFormActionType.changeContent:
       return Object.assign({}, state, {
         content: action.text,
       });
 
-    case menuFormActionType.clearTitle:
+    case drillFormActionType.clearTitle:
       return Object.assign({}, state, {
         title: '',
       });
 
-    case menuFormActionType.clearContent:
+    case drillFormActionType.clearContent:
       return Object.assign({}, state, {
         content: '',
       });
@@ -27,4 +27,4 @@ const menuForm = (state = { title: '', content: '' }, action) => {
   }
 };
 
-export default menuForm;
+export default drillForm;

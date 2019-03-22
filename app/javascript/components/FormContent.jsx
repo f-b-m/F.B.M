@@ -19,22 +19,22 @@ const styles = theme => ({
 
 class FormContent extends React.Component {
   handleClickEdit = () => {
-    const { menuForm, menuId } = this.props;
-    const { title, content } = menuForm;
+    const { drillForm, drillId } = this.props;
+    const { title, content } = drillForm;
     axios({
       method: 'patch',
-      url: '/menus/update',
+      url: '/drills/update',
       data: {
         title,
         content,
-        id: menuId,
+        id: drillId,
       },
     })
       .then(() => {
         const { modalHandleClose } = this.props;
-        const { editMenu } = this.props;
+        const { editDrill } = this.props;
         const { clearTitle, clearContent } = this.props;
-        editMenu(menuId, title, content);
+        editDrill(drillId, title, content);
         clearTitle();
         clearContent();
         modalHandleClose();
@@ -46,18 +46,18 @@ class FormContent extends React.Component {
   }
 
   handleClickDelete = () => {
-    const { menuId } = this.props;
-    axios.delete('menus/delete',
+    const { drillId } = this.props;
+    axios.delete('drills/delete',
       {
         data: {
-          id: menuId,
+          id: drillId,
         },
       })
       .then(() => {
         const { modalHandleClose } = this.props;
-        const { deleteMenu } = this.props;
+        const { deleteDrill } = this.props;
         const { clearTitle, clearContent } = this.props;
-        deleteMenu(menuId);
+        deleteDrill(drillId);
         clearTitle();
         clearContent();
         modalHandleClose();
@@ -72,13 +72,13 @@ class FormContent extends React.Component {
     const {
       classes, action, disabled,
     } = this.props;
-    const { menuForm } = this.props;
+    const { drillForm } = this.props;
     const { changeTitle, changeContent } = this.props;
     const handleClickAction = `handleClick${action}`;
 
     return (
       <div>
-        {`${action} Menu`}
+        {`${action} Drill`}
         <form>
           <TextField
             id="filled-title"
@@ -87,7 +87,7 @@ class FormContent extends React.Component {
             onChange={e => changeTitle(e.target.value)}
             fullWidth
             disabled={disabled}
-            value={menuForm.title}
+            value={drillForm.title}
             margin="normal"
             variant="filled"
           />
@@ -100,7 +100,7 @@ class FormContent extends React.Component {
             fullWidth
             disabled={disabled}
             multiline
-            value={menuForm.content}
+            value={drillForm.content}
             margin="normal"
             variant="filled"
           />
@@ -117,10 +117,10 @@ FormContent.propTypes = {
   classes: PropTypes.object.isRequired,
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
-  menuId: PropTypes.number.isRequired,
-  menuForm: PropTypes.object.isRequired,
-  editMenu: PropTypes.func.isRequired,
-  deleteMenu: PropTypes.func.isRequired,
+  drillId: PropTypes.number.isRequired,
+  drillForm: PropTypes.object.isRequired,
+  editDrill: PropTypes.func.isRequired,
+  deleteDrill: PropTypes.func.isRequired,
   changeTitle: PropTypes.func.isRequired,
   changeContent: PropTypes.func.isRequired,
   clearTitle: PropTypes.func.isRequired,

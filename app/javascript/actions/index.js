@@ -15,14 +15,14 @@ export const authInitialObject = {
   isLogIn: false,
 };
 
-export const menuActionType = {
+export const drillActionType = {
   getAll: 'GET_ALL_MENU',
   add: 'ADD_MENU',
   edit: 'EDIT_MENU',
   delete: 'DELETE_MENU',
 };
 
-export const menuFormActionType = {
+export const drillFormActionType = {
   changeTitle: 'CHANGE_TITLE',
   changeContent: 'CHANGE_CONTENT',
   clearTitle: 'CLEAR_TITLE',
@@ -32,15 +32,15 @@ export const menuFormActionType = {
 export const modalActionType = {
   toggleLogInModal: 'TOGGLE_LOG_IN_MODAL',
   toggleSignUpModal: 'TOGGLE_SIGN_UP_MODAL',
-  toggleCreateMenuModal: 'TOGGLE_CREATE_MENU_MODAL',
-  toggleEditMenuModal: 'TOGGLE_EDIT_MENU_MODAL',
-  toggleDeleteMenuModal: 'TOGGLE_DELETE_MENU_MODAL',
+  toggleCreateDrillModal: 'TOGGLE_CREATE_MENU_MODAL',
+  toggleEditDrillModal: 'TOGGLE_EDIT_MENU_MODAL',
+  toggleDeleteDrillModal: 'TOGGLE_DELETE_MENU_MODAL',
 };
 
 export const modalInitialObject = {
   isOpenLogInModal: false,
   isOpenSignUpModal: false,
-  isOpenCreateMenuModal: false,
-  isOpenEditMenuModal: false,
-  isOpenDeleteMenuModal: false,
+  isOpenCreateDrillModal: false,
+  isOpenEditDrillModal: false,
+  isOpenDeleteDrillModal: false,
 };

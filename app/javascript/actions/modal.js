@@ -8,14 +8,14 @@ export const toggleSignUpModal = () => ({
   type: modalActionType.toggleSignUpModal,
 });
 
-export const toggleCreateMenuModal = () => ({
-  type: modalActionType.toggleCreateMenuModal,
+export const toggleCreateDrillModal = () => ({
+  type: modalActionType.toggleCreateDrillModal,
 });
 
-export const toggleEditMenuModal = () => ({
-  type: modalActionType.toggleEditMenuModal,
+export const toggleEditDrillModal = () => ({
+  type: modalActionType.toggleEditDrillModal,
 });
 
-export const toggleDeleteMenuModal = () => ({
-  type: modalActionType.toggleDeleteMenuModal,
+export const toggleDeleteDrillModal = () => ({
+  type: modalActionType.toggleDeleteDrillModal,
 });
