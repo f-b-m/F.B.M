@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import GridLayout from './GridLayout';
-import ToolTipsAddButton from './TooltipsAddButton';
+import ButtonCreateDrill from './ButtonCreateDrill';
 import {
   toggleCreateMenuModal, toggleEditMenuModal, toggleDeleteMenuModal,
 } from '../actions/modal';
@@ -43,7 +43,7 @@ export const ContainerMenus = connect(
   mapDispatchToProps,
 )(GridLayout);
 
-export const ContainerTooltipsAddButton = connect(
+export const ContainerButtonCreateDrill = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ToolTipsAddButton);
+)(ButtonCreateDrill);

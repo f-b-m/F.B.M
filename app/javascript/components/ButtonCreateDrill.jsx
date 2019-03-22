@@ -37,7 +37,7 @@ const styles = theme => ({
   },
 });
 
-function TooltipsAddButton(props) {
+function ButtonCreateDrill(props) {
   const { classes } = props;
   const { userId, isOpenCreateMenuModal, menuForm } = props;
   const {
@@ -88,7 +88,7 @@ function TooltipsAddButton(props) {
   );
 }
 
-TooltipsAddButton.propTypes = {
+ButtonCreateDrill.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
   menuForm: PropTypes.object.isRequired,
@@ -101,4 +101,4 @@ TooltipsAddButton.propTypes = {
   toggleCreateMenuModal: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(TooltipsAddButton);
+export default withStyles(styles)(ButtonCreateDrill);

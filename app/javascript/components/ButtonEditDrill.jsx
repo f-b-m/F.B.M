@@ -32,7 +32,7 @@ const styles = theme => ({
   },
 });
 
-function TooltipsEditButton(props) {
+function ButtonEditDrill(props) {
   const { classes } = props;
   const {
     userId, menuId, isOpenEditMenuModal, menuForm, title, content,
@@ -95,7 +95,7 @@ function TooltipsEditButton(props) {
   );
 }
 
-TooltipsEditButton.propTypes = {
+ButtonEditDrill.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
   menuId: PropTypes.number.isRequired,
@@ -113,4 +113,4 @@ TooltipsEditButton.propTypes = {
   content: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(TooltipsEditButton);
+export default withStyles(styles)(ButtonEditDrill);

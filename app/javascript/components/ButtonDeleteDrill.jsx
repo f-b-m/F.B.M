@@ -32,7 +32,7 @@ const styles = theme => ({
   },
 });
 
-function TooltipsDeleteButton(props) {
+function ButtonDeleteDrill(props) {
   const { classes } = props;
   const {
     userId, menuId, isOpenDeleteMenuModal, menuForm, title, content,
@@ -95,7 +95,7 @@ function TooltipsDeleteButton(props) {
   );
 }
 
-TooltipsDeleteButton.propTypes = {
+ButtonDeleteDrill.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
   menuId: PropTypes.number.isRequired,
@@ -113,4 +113,4 @@ TooltipsDeleteButton.propTypes = {
   content: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(TooltipsDeleteButton);
+export default withStyles(styles)(ButtonDeleteDrill);

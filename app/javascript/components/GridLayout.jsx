@@ -6,8 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import CardMenuTitle from './CardMenuTitle';
-import TooltipsEditButton from './TooltipsEditButton';
-import TooltipsDeleteButton from './TooltipsDeleteButton';
+import ButtonEditDrill from './ButtonEditDrill';
+import ButtonDeleteDrill from './ButtonDeleteDrill';
 
 const styles = theme => ({
   root: {
@@ -60,7 +60,7 @@ class CenteredGrid extends React.Component {
               {elm.user_id === userId
                 ? (
                   <div>
-                    <TooltipsEditButton
+                    <ButtonEditDrill
                       menuId={elm.id}
                       userId={userId}
                       menuForm={menuForm}
@@ -76,7 +76,7 @@ class CenteredGrid extends React.Component {
                       title={elm.title}
                       content={elm.content}
                     />
-                    <TooltipsDeleteButton
+                    <ButtonDeleteDrill
                       menuId={elm.id}
                       userId={userId}
                       menuForm={menuForm}
