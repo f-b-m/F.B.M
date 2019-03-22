@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
-import CardDrillTitle from './CardDrillTitle';
+import CardDrill from './CardDrill';
 import ButtonEditDrill from './ButtonEditDrill';
 import ButtonDeleteDrill from './ButtonDeleteDrill';
 
@@ -53,7 +53,7 @@ class CenteredGrid extends React.Component {
         <Grid container spacing={24}>
           {drills.map(elm => (
             <Grid item xs={12} key={elm.id}>
-              <CardDrillTitle />
+              <CardDrill />
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>
