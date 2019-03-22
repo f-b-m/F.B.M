@@ -39,7 +39,7 @@ const styles = theme => ({
   },
 });
 
-class CardDrillTitle extends React.Component {
+class CardDrill extends React.Component {
   state = { expanded: false };
 
   handleExpandClick = () => {
@@ -47,7 +47,7 @@ class CardDrillTitle extends React.Component {
   };
 
   render() {
-    const { classes } = this.props;
+    const { classes, drillTitle, drillContent } = this.props;
 
     return (
       <Card className={classes.card}>
@@ -62,7 +62,7 @@ class CardDrillTitle extends React.Component {
               <MoreVertIcon />
             </IconButton>
           )}
-          title="Shrimp and Chorizo Paella"
+          title={drillTitle}
           subheader="September 14, 2016"
         />
         {/*
@@ -74,8 +74,7 @@ class CardDrillTitle extends React.Component {
           */}
         <CardContent>
           <Typography component="p">
-            This impressive paella is a perfect party dish and a fun meal to cook together with your
-            guests. Add 1 cup of frozen peas along with the mussels, if you like.
+            {drillContent}
           </Typography>
         </CardContent>
         <CardActions className={classes.actions} disableActionSpacing>
@@ -91,8 +90,10 @@ class CardDrillTitle extends React.Component {
   }
 }
 
-CardDrillTitle.propTypes = {
+CardDrill.propTypes = {
   classes: PropTypes.object.isRequired,
+  drillTitle: PropTypes.string.isRequired,
+  drillContent: PropTypes.string.isRequired,
 };
 
-export default withStyles(styles)(CardDrillTitle);
+export default withStyles(styles)(CardDrill);
