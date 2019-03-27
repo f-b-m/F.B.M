@@ -55,7 +55,7 @@ function ButtonEditDrill(props) {
   };
 
   return (
-    <a>
+    <span>
       <Tooltip title="Edit" aria-label="Edit">
         <IconButton onClick={handleClick}>
           <EditIcon />
@@ -87,7 +87,7 @@ function ButtonEditDrill(props) {
           />
         </div>
       </Modal>
-    </a>
+    </span>
   );
 }
 

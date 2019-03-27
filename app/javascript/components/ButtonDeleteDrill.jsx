@@ -56,7 +56,7 @@ function ButtonDeleteDrill(props) {
 
 
   return (
-    <a>
+    <span>
       <Tooltip title="Delete" aria-label="Delete">
         <IconButton onClick={handleClick}>
           <DeleteIcon />
@@ -88,7 +88,7 @@ function ButtonDeleteDrill(props) {
           />
         </div>
       </Modal>
-    </a>
+    </span>
   );
 }
 
