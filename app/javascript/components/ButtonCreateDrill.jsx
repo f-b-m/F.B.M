@@ -20,10 +20,7 @@ function getModalStyle() {
 
 const styles = theme => ({
   fab: {
-    margin: theme.spacing.unit * 2,
-  },
-  absolute: {
-    position: 'absolute',
+    position: 'fixed',
     bottom: theme.spacing.unit * 2,
     right: theme.spacing.unit * 3,
   },
@@ -57,7 +54,7 @@ function ButtonCreateDrill(props) {
         <Fab
           onClick={toggleCreateDrillModal}
           color="secondary"
-          className={classes.absolute}
+          className={classes.fab}
         >
           <AddIcon />
         </Fab>
