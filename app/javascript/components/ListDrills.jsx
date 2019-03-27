@@ -46,7 +46,13 @@ class CenteredGrid extends React.Component {
         <Grid container spacing={24}>
           {drills.map(elm => (
             <Grid item xs={12} key={elm.id}>
-              <CardDrill drillTitle={elm.title} drillContent={elm.content} />
+              <CardDrill
+                drillId={elm.id}
+                drillTitle={elm.title}
+                drillContent={elm.content}
+                drillEditor={elm.user_id}
+                userId={userId}
+              />
               <Paper className={classes.paper}>
                 {`タイトル: ${elm.title}，内容: ${elm.content}`}
               </Paper>

@@ -12,6 +12,9 @@ import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {
+  ContainerButtonEditDrill, ContainerButtonDeleteDrill,
+} from './ContainerButtonDrill';
 
 const styles = theme => ({
   card: {
@@ -47,7 +50,9 @@ class CardDrill extends React.Component {
   };
 
   render() {
-    const { classes, drillTitle, drillContent } = this.props;
+    const {
+      classes, drillId, drillTitle, drillContent, drillEditor, userId,
+    } = this.props;
 
     return (
       <Card className={classes.card}>
@@ -60,6 +65,23 @@ class CardDrill extends React.Component {
           action={(
             <IconButton>
               <MoreVertIcon />
+              {drillEditor === userId
+                ? (
+                  <div>
+                    <ContainerButtonEditDrill
+                      drillId={drillId}
+                      title={drillTitle}
+                      content={drillContent}
+                    />
+                    <ContainerButtonDeleteDrill
+                      drillId={drillId}
+                      title={drillTitle}
+                      content={drillContent}
+                    />
+                  </div>
+                )
+                : <div />
+              }
             </IconButton>
           )}
           title={drillTitle}
@@ -92,8 +114,11 @@ class CardDrill extends React.Component {
 
 CardDrill.propTypes = {
   classes: PropTypes.object.isRequired,
+  drillId: PropTypes.number.isRequired,
   drillTitle: PropTypes.string.isRequired,
   drillContent: PropTypes.string.isRequired,
+  drillEditor: PropTypes.number.isRequired,
+  userId: PropTypes.number.isRequired,
 };
 
 export default withStyles(styles)(CardDrill);
