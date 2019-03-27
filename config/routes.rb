@@ -7,6 +7,4 @@ Rails.application.routes.draw do
   delete 'drills/delete', to: 'menus#destroy'
   patch 'drills/update', to: 'menus#update'
 
-  get 'drill_detail/', to: 'menu_details#menu_detail'  
-
 end
