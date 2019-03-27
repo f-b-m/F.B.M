@@ -8,6 +8,7 @@ import CardDrill from './CardDrill';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    margin: 32,
   },
   button: {
     margin: theme.spacing.unit,
@@ -33,15 +34,16 @@ class CenteredGrid extends React.Component {
 
     return (
       <div className={classes.root}>
-        <Grid container spacing={8}>
+        <Grid container spacing={32}>
           {drills.map(elm => (
-            <Grid item xs={4} key={elm.id}>
+            <Grid item xs={3} key={elm.id}>
               <CardDrill
                 drillId={elm.id}
                 drillTitle={elm.title}
                 drillContent={elm.content}
                 drillEditor={elm.user_id}
                 userId={userId}
+                t={0}
               />
             </Grid>
           ))}
