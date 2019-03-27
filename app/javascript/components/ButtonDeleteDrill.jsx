@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
-import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
 import FormDrillContent from './FormDrillContent';
 
@@ -56,14 +56,11 @@ function ButtonDeleteDrill(props) {
 
 
   return (
-    <div>
+    <a>
       <Tooltip title="Delete" aria-label="Delete">
-        <Fab
-          onClick={handleClick}
-          color="secondary"
-        >
+        <IconButton onClick={handleClick}>
           <DeleteIcon />
-        </Fab>
+        </IconButton>
       </Tooltip>
       <Modal
         aria-labelledby="delete-drill-modal-title"
@@ -91,7 +88,7 @@ function ButtonDeleteDrill(props) {
           />
         </div>
       </Modal>
-    </div>
+    </a>
   );
 }
 

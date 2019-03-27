@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
 import {
   ContainerButtonEditDrill, ContainerButtonDeleteDrill,
 } from './ContainerButtonDrill';
@@ -63,8 +62,7 @@ class CardDrill extends React.Component {
             </Avatar>
           )}
           action={(
-            <IconButton>
-              <MoreVertIcon />
+            <div>
               {drillEditor === userId
                 ? (
                   <div>
@@ -82,7 +80,7 @@ class CardDrill extends React.Component {
                 )
                 : <div />
               }
-            </IconButton>
+            </div>
           )}
           title={drillTitle}
           subheader="September 14, 2016"

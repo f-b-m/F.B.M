@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import EditIcon from '@material-ui/icons/Edit';
-import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
+import IconButton from '@material-ui/core/IconButton';
 import Modal from '@material-ui/core/Modal';
 import FormDrillContent from './FormDrillContent';
 
@@ -55,15 +55,11 @@ function ButtonEditDrill(props) {
   };
 
   return (
-    <div>
+    <a>
       <Tooltip title="Edit" aria-label="Edit">
-        <Fab
-          onClick={handleClick}
-          color="secondary"
-          className={classes.absolute}
-        >
+        <IconButton onClick={handleClick}>
           <EditIcon />
-        </Fab>
+        </IconButton>
       </Tooltip>
       <Modal
         aria-labelledby="edit-drill-modal-title"
@@ -91,7 +87,7 @@ function ButtonEditDrill(props) {
           />
         </div>
       </Modal>
-    </div>
+    </a>
   );
 }
 
