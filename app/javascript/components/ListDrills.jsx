@@ -1,23 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
-import Button from '@material-ui/core/Button';
 import CardDrill from './CardDrill';
-import {
-  ContainerButtonEditDrill, ContainerButtonDeleteDrill,
-} from './ContainerButtonDrill';
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing.unit * 2,
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
   },
   button: {
     margin: theme.spacing.unit,
@@ -43,9 +33,9 @@ class CenteredGrid extends React.Component {
 
     return (
       <div className={classes.root}>
-        <Grid container spacing={24}>
+        <Grid container spacing={8}>
           {drills.map(elm => (
-            <Grid item xs={12} key={elm.id}>
+            <Grid item xs={4} key={elm.id}>
               <CardDrill
                 drillId={elm.id}
                 drillTitle={elm.title}
@@ -53,35 +43,6 @@ class CenteredGrid extends React.Component {
                 drillEditor={elm.user_id}
                 userId={userId}
               />
-              <Paper className={classes.paper}>
-                {`タイトル: ${elm.title}，内容: ${elm.content}`}
-              </Paper>
-              {elm.user_id === userId
-                ? (
-                  <div>
-                    <ContainerButtonEditDrill
-                      drillId={elm.id}
-                      title={elm.title}
-                      content={elm.content}
-                    />
-                    <ContainerButtonDeleteDrill
-                      drillId={elm.id}
-                      title={elm.title}
-                      content={elm.content}
-                    />
-                  </div>
-                )
-                : <div />
-              }
-
-              <Button
-                variant="outlined"
-                className={classes.button}
-                component="a"
-                href="/drill_detail/"
-              >
-              Detail
-              </Button>
             </Grid>
           ))}
         </Grid>
