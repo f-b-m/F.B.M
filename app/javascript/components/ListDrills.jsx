@@ -27,7 +27,7 @@ const styles = theme => ({
 class CenteredGrid extends React.Component {
   componentWillMount() {
     const { getAllDrills } = this.props;
-    axios.get('menus/index')
+    axios.get('drills/index')
       .then((response) => {
         const drills = response.data;
         getAllDrills(drills);
