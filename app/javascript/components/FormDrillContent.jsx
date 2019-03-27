@@ -17,7 +17,7 @@ const styles = theme => ({
   },
 });
 
-class FormContent extends React.Component {
+class FormDrillContent extends React.Component {
   handleClickEdit = () => {
     const { drillForm, drillId } = this.props;
     const { title, content } = drillForm;
@@ -113,7 +113,7 @@ class FormContent extends React.Component {
   }
 }
 
-FormContent.propTypes = {
+FormDrillContent.propTypes = {
   classes: PropTypes.object.isRequired,
   action: PropTypes.string.isRequired,
   disabled: PropTypes.bool.isRequired,
@@ -128,4 +128,4 @@ FormContent.propTypes = {
   modalHandleClose: PropTypes.func.isRequired,
 };
 
-export default withStyles(styles)(FormContent);
+export default withStyles(styles)(FormDrillContent);

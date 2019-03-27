@@ -5,7 +5,7 @@ import EditIcon from '@material-ui/icons/Edit';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
-import FormContent from './FormContent';
+import FormDrillContent from './FormDrillContent';
 
 function getModalStyle() {
   const top = 50;
@@ -72,7 +72,7 @@ function ButtonEditDrill(props) {
         onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
-          <FormContent
+          <FormDrillContent
             action="Edit"
             disabled={false}
             userId={userId}

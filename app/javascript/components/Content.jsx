@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import { ContainerDrills, ContainerButtonCreateDrill } from './ContainerDrills';
+import ContainerDrills from './ContainerDrills';
+import ButtonCreateDrill from './ButtonCreateDrill';
 
 const styles = {
   root: {
@@ -21,7 +22,7 @@ function FBMBody(props) {
   return (
     <div className={classes.root}>
       <ContainerDrills />
-      <ContainerButtonCreateDrill />
+      <ButtonCreateDrill />
     </div>
   );
 }

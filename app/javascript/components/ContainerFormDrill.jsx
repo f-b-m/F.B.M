@@ -4,7 +4,7 @@ import {
   toggleCreateDrillModal, toggleEditDrillModal, toggleDeleteDrillModal,
 } from '../actions/modal';
 import {
-  getAllDrills, addDrill, editDrill, deleteDrill,
+  addDrill, editDrill, deleteDrill,
 } from '../actions/drill';
 import {
   changeTitle, changeContent, clearTitle, clearContent,
@@ -20,7 +20,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAllDrills: drills => dispatch(getAllDrills(drills)),
   addDrill: (drillId, title, content, userId) => {
     dispatch(addDrill(drillId, title, content, userId));
   },
