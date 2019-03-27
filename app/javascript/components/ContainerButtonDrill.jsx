@@ -1,5 +1,7 @@
 import { connect } from 'react-redux';
-import FormDrillContent from './FormDrillContent';
+import ButtonCreateDrill from './ButtonCreateDrill';
+import ButtonEditDrill from './ButtonEditDrill';
+import ButtonDeleteDrill from './ButtonDeleteDrill';
 import {
   toggleCreateDrillModal, toggleEditDrillModal, toggleDeleteDrillModal,
 } from '../actions/modal';
@@ -36,7 +38,17 @@ const mapDispatchToProps = dispatch => ({
   toggleDeleteDrillModal: () => dispatch(toggleDeleteDrillModal()),
 });
 
-export default connect(
+export const ContainerButtonCreateDrill = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(FormDrillContent);
+)(ButtonCreateDrill);
+
+export const ContainerButtonEditDrill = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ButtonEditDrill);
+
+export const ContainerButtonDeleteDrill = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ButtonDeleteDrill);

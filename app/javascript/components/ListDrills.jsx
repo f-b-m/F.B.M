@@ -6,8 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import Button from '@material-ui/core/Button';
 import CardDrill from './CardDrill';
-import ButtonEditDrill from './ButtonEditDrill';
-import ButtonDeleteDrill from './ButtonDeleteDrill';
+import {
+  ContainerButtonEditDrill, ContainerButtonDeleteDrill,
+} from './ContainerButtonDrill';
 
 const styles = theme => ({
   root: {
@@ -38,15 +39,7 @@ class CenteredGrid extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const {
-      userId, isOpenEditDrillModal, isOpenDeleteDrillModal, drills, drillForm,
-    } = this.props;
-    const {
-      addDrill, editDrill, deleteDrill,
-      changeTitle, changeContent,
-      clearTitle, clearContent,
-      toggleEditDrillModal, toggleDeleteDrillModal,
-    } = this.props;
+    const { userId, drills } = this.props;
 
     return (
       <div className={classes.root}>
@@ -60,35 +53,13 @@ class CenteredGrid extends React.Component {
               {elm.user_id === userId
                 ? (
                   <div>
-                    <ButtonEditDrill
+                    <ContainerButtonEditDrill
                       drillId={elm.id}
-                      userId={userId}
-                      drillForm={drillForm}
-                      isOpenEditDrillModal={isOpenEditDrillModal}
-                      addDrill={addDrill}
-                      editDrill={editDrill}
-                      deleteDrill={deleteDrill}
-                      changeTitle={changeTitle}
-                      changeContent={changeContent}
-                      clearTitle={clearTitle}
-                      clearContent={clearContent}
-                      toggleEditDrillModal={toggleEditDrillModal}
                       title={elm.title}
                       content={elm.content}
                     />
-                    <ButtonDeleteDrill
+                    <ContainerButtonDeleteDrill
                       drillId={elm.id}
-                      userId={userId}
-                      drillForm={drillForm}
-                      isOpenDeleteDrillModal={isOpenDeleteDrillModal}
-                      addDrill={addDrill}
-                      editDrill={editDrill}
-                      deleteDrill={deleteDrill}
-                      changeTitle={changeTitle}
-                      changeContent={changeContent}
-                      clearTitle={clearTitle}
-                      clearContent={clearContent}
-                      toggleDeleteDrillModal={toggleDeleteDrillModal}
                       title={elm.title}
                       content={elm.content}
                     />
@@ -117,19 +88,7 @@ CenteredGrid.propTypes = {
   classes: PropTypes.object.isRequired,
   userId: PropTypes.number.isRequired,
   drills: PropTypes.array.isRequired,
-  drillForm: PropTypes.object.isRequired,
-  isOpenEditDrillModal: PropTypes.bool.isRequired,
-  isOpenDeleteDrillModal: PropTypes.bool.isRequired,
   getAllDrills: PropTypes.func.isRequired,
-  addDrill: PropTypes.func.isRequired,
-  editDrill: PropTypes.func.isRequired,
-  deleteDrill: PropTypes.func.isRequired,
-  changeTitle: PropTypes.func.isRequired,
-  changeContent: PropTypes.func.isRequired,
-  clearTitle: PropTypes.func.isRequired,
-  clearContent: PropTypes.func.isRequired,
-  toggleEditDrillModal: PropTypes.func.isRequired,
-  toggleDeleteDrillModal: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(CenteredGrid);
