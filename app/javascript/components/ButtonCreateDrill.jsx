@@ -5,7 +5,7 @@ import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import Tooltip from '@material-ui/core/Tooltip';
 import Modal from '@material-ui/core/Modal';
-import CreateContent from './CreateContent';
+import FormCreateDrill from './FormCreateDrill';
 
 function getModalStyle() {
   const top = 50;
@@ -69,7 +69,7 @@ function ButtonCreateDrill(props) {
         onClose={handleClose}
       >
         <div style={getModalStyle()} className={classes.paper}>
-          <CreateContent
+          <FormCreateDrill
             action="Create"
             disabled={false}
             userId={userId}
