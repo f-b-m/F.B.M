@@ -8,13 +8,6 @@ const styles = {
   root: {
     flexGrow: 1,
   },
-  grow: {
-    flexGrow: 1,
-  },
-  drillButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
 };
 
 function FBMBody(props) {

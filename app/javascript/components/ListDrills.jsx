@@ -5,15 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import axios from 'axios';
 import CardDrill from './CardDrill';
 
-const styles = theme => ({
+const styles = {
   root: {
     flexGrow: 1,
     margin: 32,
   },
-  button: {
-    margin: theme.spacing.unit,
-  },
-});
+};
 
 class CenteredGrid extends React.Component {
   componentWillMount() {
