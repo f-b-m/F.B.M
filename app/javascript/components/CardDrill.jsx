@@ -15,7 +15,7 @@ import {
   ContainerButtonEditDrill, ContainerButtonDeleteDrill,
 } from './ContainerButtonDrill';
 
-const styles = theme => ({
+const styles = {
   card: {
     maxWidth: 400,
   },
@@ -29,7 +29,7 @@ const styles = theme => ({
   avatar: {
     backgroundColor: red[500],
   },
-});
+};
 
 class CardDrill extends React.Component {
   state = { expanded: false };
