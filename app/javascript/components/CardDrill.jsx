@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import red from '@material-ui/core/colors/red';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
+import { Link } from 'react-router-dom';
 import {
   ContainerButtonEditDrill, ContainerButtonDeleteDrill,
 } from './ContainerButtonDrill';
@@ -94,6 +95,7 @@ class CardDrill extends React.Component {
           <IconButton aria-label="Share">
             <ShareIcon />
           </IconButton>
+          <Link to="/detail">detail</Link>
         </CardActions>
       </Card>
     );

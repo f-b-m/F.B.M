@@ -6,10 +6,8 @@ import DrillDetail from './DrillDetail';
 function AppRouter() {
   return (
     <Router>
-      <div>
-        <Route path="/" exact component={Content} />
-        <Route path="/detail" component={DrillDetail} />
-      </div>
+      <Route path="/" exact component={Content} />
+      <Route path="/detail" component={DrillDetail} />
     </Router>
   );
 }

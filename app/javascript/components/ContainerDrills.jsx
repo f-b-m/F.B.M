@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ListDrills from './ListDrills';
 import { getAllDrills } from '../actions/drill';
 
@@ -11,7 +12,7 @@ const mapDispatchToProps = dispatch => ({
   getAllDrills: drills => dispatch(getAllDrills(drills)),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ListDrills);
+)(ListDrills));

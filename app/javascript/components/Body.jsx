@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from './Header';
-import Content from './Content';
+import Router from './Router';
 
 
 export function FBMBody() {
   return (
     <div>
       <Header />
-      <Content />
+      <Router />
     </div>
   );
 }

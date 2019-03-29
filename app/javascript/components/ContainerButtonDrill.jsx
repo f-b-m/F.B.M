@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ButtonCreateDrill from './ButtonCreateDrill';
 import ButtonEditDrill from './ButtonEditDrill';
 import ButtonDeleteDrill from './ButtonDeleteDrill';
@@ -38,17 +39,17 @@ const mapDispatchToProps = dispatch => ({
   toggleDeleteDrillModal: () => dispatch(toggleDeleteDrillModal()),
 });
 
-export const ContainerButtonCreateDrill = connect(
+export const ContainerButtonCreateDrill = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ButtonCreateDrill);
+)(ButtonCreateDrill));
 
-export const ContainerButtonEditDrill = connect(
+export const ContainerButtonEditDrill = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ButtonEditDrill);
+)(ButtonEditDrill));
 
-export const ContainerButtonDeleteDrill = connect(
+export const ContainerButtonDeleteDrill = withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ButtonDeleteDrill);
+)(ButtonDeleteDrill));
